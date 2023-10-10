@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Calendario mensal por cidade">
+    <meta name="keywords" content="calendario, cidade, calendario mensal">
+    <meta name="author" content="Janaina">
+
+    <title>Calendario mensal por cidade</title>
+
+    <link rel="stylesheet" type="text/css" href="/style/estilo.css">
+</head>
+
+<body>
+    <h1>Calendário Mensal por Cidade <span id="anoAtual">Ano</span></h1>
+
+    <label for="estado">Escolha um estado:</label>
+    <select id="estado">
+        <option value="" selected>Selecione um estado</option>
+    </select>
+
+
+    <label for="cidade">Escolha uma cidade:</label>
+    <select id="cidade">
+        <option value="">Selecione uma cidade</option>
+    </select>
+
+
+    <label for="mes">Escolha um mês:</label>
+    <select id="mes">
+        <option value="" selected>Selecione um mês</option>
+        <option value="janeiro">Janeiro</option>
+        <option value="fevereiro">Fevereiro</option>
+        <!-- Adicione mais meses conforme necessário -->
+    </select>
+
+    <button id="verCalendario" disabled>Ver Calendário</button>
+
+    <!-- O calendário será exibido aqui após o clique no botão -->
+
+    <script src="/scripts/exibir.js"></script>
+    <script src="/scripts/anoAtual.js"></script>
+    <script src="/scripts/estados.js" type="module"></script>
+    <script src="/scripts/cidades.js" type="module"></script>
+</body>
+
+</html>

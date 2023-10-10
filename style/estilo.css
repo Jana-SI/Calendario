@@ -1,0 +1,15 @@
+
+
+#verCalendario {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+#verCalendario:disabled {
+    background-color: #ccc;
+    color: #666;
+    cursor: not-allowed;
+}
