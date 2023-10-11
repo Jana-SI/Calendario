@@ -1,30 +1,46 @@
+// exibir.js
+import { gerarCalendario } from './calendario.js';
+import { carregarFeriados } from "./feriadosNacionais.js";
+
 // Recupere os elementos do DOM
+const estadoSelect = document.getElementById("estado");
 const cidadeSelect = document.getElementById("cidade");
 const mesSelect = document.getElementById("mes");
 const verCalendarioButton = document.getElementById("verCalendario");
 const calendarioContainer = document.getElementById("calendario");
 
 // Adicione um ouvinte de eventos para os seletores
+estadoSelect.addEventListener("change", validarSelecao);
+cidadeSelect.addEventListener("change", validarSelecao);
+mesSelect.addEventListener("change", validarSelecao);
+
+// Adicione um ouvinte de eventos para os seletores
+estadoSelect.addEventListener("change", validarSelecao);
 cidadeSelect.addEventListener("change", validarSelecao);
 mesSelect.addEventListener("change", validarSelecao);
 
 function validarSelecao() {
-    // Verifique se ambos os seletores têm valores selecionados
-    if (cidadeSelect.value !== "" && mesSelect.value !== "") {
+    const estadoSelecionado = estadoSelect.value;
+    const cidadeSelecionada = cidadeSelect.value;
+    const mesSelecionado = mesSelect.value;
+
+    // Verifique se os três seletores têm valores selecionados
+    if (estadoSelecionado && cidadeSelecionada && mesSelecionado) {
         verCalendarioButton.disabled = false; // Ative o botão
     } else {
         verCalendarioButton.disabled = true; // Desative o botão
     }
 }
 
+
 // Adicione um ouvinte de eventos para o botão "Ver Calendário"
 verCalendarioButton.addEventListener("click", () => {
-    // Obtenha os valores selecionados
+    const estadoSelecionado = estadoSelect.value;
     const cidadeSelecionada = cidadeSelect.value;
     const mesSelecionado = mesSelect.value;
 
-    // Verifique se a cidade e o mês foram selecionados
-    if (cidadeSelecionada && mesSelecionado) {
+    // Verifique se os três seletores têm valores selecionados
+    if (estadoSelecionado && cidadeSelecionada && mesSelecionado) {
         // Chame uma função para exibir o calendário com base nas escolhas do usuário
         exibirCalendario(cidadeSelecionada, mesSelecionado);
     } else {
@@ -34,12 +50,13 @@ verCalendarioButton.addEventListener("click", () => {
 
 // Função para exibir o calendário com base na cidade e mês selecionados
 function exibirCalendario(cidade, mes) {
-    // Aqui você pode adicionar a lógica para exibir o calendário.
-    // Isso pode incluir a busca de feriados específicos para a cidade e mês selecionados e a renderização do calendário na área "calendarioContainer".
-    
-    // Por enquanto, vamos simplesmente exibir uma mensagem de exemplo
-    const mensagemExemplo = `Calendário para ${mes} em ${cidade}`;
-    calendarioContainer.innerHTML = `<p>${mensagemExemplo}</p>`;
-    
-    // Você pode implementar a lógica real para exibir o calendário aqui
+    // Verifique se a cidade e o mês foram selecionados
+    if (cidade && mes) {
+        // Chame a função gerarCalendario para exibir o calendário
+        const anoAtual = new Date().getFullYear();
+        calendarioContainer.innerHTML = gerarCalendario(anoAtual, mes);
+        carregarFeriados(anoAtual, mes);
+    } else {
+        alert("Por favor, escolha uma cidade e um mês antes de ver o calendário.");
+    }
 }

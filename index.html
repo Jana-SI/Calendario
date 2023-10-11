@@ -24,26 +24,28 @@
 
     <label for="cidade">Escolha uma cidade:</label>
     <select id="cidade">
-        <option value="">Selecione uma cidade</option>
+        <option value="" selected>Selecione uma cidade</option>
     </select>
 
 
     <label for="mes">Escolha um mês:</label>
     <select id="mes">
         <option value="" selected>Selecione um mês</option>
-        <option value="janeiro">Janeiro</option>
-        <option value="fevereiro">Fevereiro</option>
-        <!-- Adicione mais meses conforme necessário -->
     </select>
 
     <button id="verCalendario" disabled>Ver Calendário</button>
 
-    <!-- O calendário será exibido aqui após o clique no botão -->
+    <div id="calendario"></div>
 
-    <script src="/scripts/exibir.js"></script>
+    <div id="feriados"></div>
+
+    <script src="/scripts/exibir.js" type="module"></script>
     <script src="/scripts/anoAtual.js"></script>
     <script src="/scripts/estados.js" type="module"></script>
     <script src="/scripts/cidades.js" type="module"></script>
+    <script src="/scripts/mes.js"></script>
+    <script src="/scripts/calendario.js" type="module"></script>
+    <script src="/scripts/feriadosNacionais.js" type="module"></script>
 </body>
 
 </html>
