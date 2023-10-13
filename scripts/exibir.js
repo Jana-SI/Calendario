@@ -1,6 +1,7 @@
 // exibir.js
 import { gerarCalendario } from './calendario.js';
 import { carregarFeriados } from "./feriadosNacionais.js";
+import { calcularEstacoesDoAno } from "./estacoesAno.js";
 
 // Recupere os elementos do DOM
 const estadoSelect = document.getElementById("estado");
@@ -56,6 +57,7 @@ function exibirCalendario(cidade, mes) {
         const anoAtual = new Date().getFullYear();
         calendarioContainer.innerHTML = gerarCalendario(anoAtual, mes);
         carregarFeriados(anoAtual, mes);
+        calcularEstacoesDoAno(mes);
     } else {
         alert("Por favor, escolha uma cidade e um mês antes de ver o calendário.");
     }
