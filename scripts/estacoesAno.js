@@ -1,53 +1,16 @@
-function calcularProximaEstacao(mesSelecionado) {
-    const estacoes = {
-        1: "Verão",
-        2: "Verão",
-        3: "Outono",
-        4: "Outono",
-        5: "Outono",
-        6: "Inverno",
-        7: "Inverno",
-        8: "Inverno",
-        9: "Primavera",
-        10: "Primavera",
-        11: "Primavera",
-        12: "Verão",
-    };
+export function getSeason(month) {
+    const seasons = ["Verão", "Outono", "Inverno", "Primavera"];
+    const seasonStartDates = [new Date(0, 0, 1), new Date(0, 2, 1), new Date(0, 5, 1), new Date(0, 8, 1)];
+    const currentDate = new Date(0, month - 1, 1); // Ajuste para o seletor que começa em 1.
 
-    const estacaoAtual = estacoes[mesSelecionado];
-    const proximaEstacao =
-        mesSelecionado === 12 ? estacoes[1] : estacoes[mesSelecionado + 1];
-
-    return proximaEstacao;
-}
-
-function calcularDataInicioProximaEstacao(mesSelecionado) {
-    const estimativaAno = new Date().getFullYear();
-    const proximaEstacao = calcularProximaEstacao(mesSelecionado);
-
-    // Ajuste as datas para o hemisfério sul (Brasil)
-    switch (proximaEstacao) {
-        case "Verão":
-            return new Date(estimativaAno, 0, 23); // Estimativa para o início do verão
-        case "Outono":
-            return new Date(estimativaAno, 3, 21); // Estimativa para o início do outono
-        case "Inverno":
-            return new Date(estimativaAno, 6, 21); // Estimativa para o início do inverno
-        case "Primavera":
-            return new Date(estimativaAno, 9, 23); // Estimativa para o início da primavera
-        default:
-            return null;
+    for (let i = 0; i < seasonStartDates.length; i++) {
+        if (currentDate >= seasonStartDates[i] && currentDate < seasonStartDates[(i + 1) % 4]) {
+            const nextSeason = (i + 1) % 4;
+            const nextSeasonDate = seasonStartDates[nextSeason];
+            const daysUntilNextSeason = Math.ceil((nextSeasonDate - currentDate) / (1000 * 60 * 60 * 24));
+            return `${seasons[i]} - Falta ${daysUntilNextSeason} dias para ${seasons[nextSeason]} (em ${nextSeasonDate.getDate()}/${nextSeasonDate.getMonth() + 1})`;
+        }
     }
-}
 
-export function calcularEstacoesDoAno(mes) {
-    const mesSelecionado = parseInt(mes, 10); // Use 'mes' como parâmetro
-    const proximaEstacao = calcularProximaEstacao(mesSelecionado);
-const dataInicioProximaEstacao = calcularDataInicioProximaEstacao(mesSelecionado);
-    
-    const elementoEstacao = document.getElementById("estacao-do-ano");
-    const elementoDataInicio = document.getElementById("data-inicio-estacao");
-
-    elementoEstacao.textContent = `Estamos no mês de ${proximaEstacao}`;
-    elementoDataInicio.textContent = `A estação começa aproximadamente em: ${dataInicioProximaEstacao.toLocaleDateString()}`;
+    return "Estação indefinida";
 }
