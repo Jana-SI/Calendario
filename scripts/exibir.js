@@ -59,6 +59,12 @@ function exibirCalendario(cidade, mes) {
         calendarioContainer.innerHTML = gerarCalendario(anoAtual, mes);
         carregarFeriados(anoAtual, mes);
         document.getElementById("estacaoDoAno").innerHTML = getSeason(mes);
+
+        const datasDasFases = calcularFasesDaLua(mes, anoAtual);
+        console.log("Datas das fases da lua:");
+        for (const data of datasDasFases) {
+            console.log(data.toDateString());
+        }
     } else {
         alert("Por favor, escolha uma cidade e um mês antes de ver o calendário.");
     }
