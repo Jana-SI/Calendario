@@ -1,0 +1,40 @@
+{
+    "2023": {
+        "1": [
+            {
+                "data": "2023-01-06",
+                "fase": "Lua Cheia"
+            },
+            {
+                "date": "2023-01-14",
+                "phase": "Lua Minguante"
+            },
+            {
+                "date": "2023-01-21",
+                "phase": "Lua Nova"
+            },
+            {
+                "date": "2023-01-28",
+                "phase": "Lua Crescente"
+            }
+        ],
+        "2": [
+            {
+                "data": "2023-01-05",
+                "fase": "Lua Cheia"
+            },
+            {
+                "date": "2023-01-13",
+                "phase": "Lua Minguante"
+            },
+            {
+                "date": "2023-01-20",
+                "phase": "Lua Nova"
+            },
+            {
+                "date": "2023-01-27",
+                "phase": "Lua Crescente"
+            }
+        ]
+    }
+}

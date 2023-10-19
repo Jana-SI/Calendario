@@ -2,7 +2,7 @@
 import { gerarCalendario } from './calendario.js';
 import { carregarFeriados } from "./feriadosNacionais.js";
 import { getSeason } from "./estacoesAno.js";
-import { calcularFasesDaLua } from "./fasesLua.js";
+import { exibirFasesDaLua } from "./fasesLua.js";
 
 // Recupere os elementos do DOM
 const estadoSelect = document.getElementById("estado");
@@ -60,11 +60,8 @@ function exibirCalendario(cidade, mes) {
         carregarFeriados(anoAtual, mes);
         document.getElementById("estacaoDoAno").innerHTML = getSeason(mes);
 
-        const datasDasFases = calcularFasesDaLua(mes, anoAtual);
-        console.log("Datas das fases da lua:");
-        for (const data of datasDasFases) {
-            console.log(data.toDateString());
-        }
+        exibirFasesDaLua(anoAtual, mes);  
+
     } else {
         alert("Por favor, escolha uma cidade e um mês antes de ver o calendário.");
     }
