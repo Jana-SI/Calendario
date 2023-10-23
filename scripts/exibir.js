@@ -60,7 +60,7 @@ function exibirCalendario(cidade, mes) {
         carregarFeriados(anoAtual, mes);
         document.getElementById("estacaoDoAno").innerHTML = getSeason(mes);
 
-        exibirFasesDaLua(anoAtual, mes);  
+        exibirFasesDaLua(anoAtual, mes);
 
     } else {
         alert("Por favor, escolha uma cidade e um mês antes de ver o calendário.");

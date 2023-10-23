@@ -446,5 +446,223 @@
                 "fase": "Lua Nova"
             }
         ]
+    },
+    "2025": {
+        "1": [
+            {
+                "data": "2025-01-06",
+                "fase": "Lua Crescente"
+            },
+            {
+                "data": "2025-01-13",
+                "fase": "Lua Cheia"
+            },
+            {
+                "data": "2025-01-21",
+                "fase": "Lua Minguante"
+            },
+            {
+                "data": "2025-01-29",
+                "fase": "Lua Nova"
+            }
+        ],
+        "2": [
+            {
+                "data": "2025-02-05",
+                "fase": "Lua Crescente"
+            },
+            {
+                "data": "2025-02-12",
+                "fase": "Lua Cheia"
+            },
+            {
+                "data": "2025-02-20",
+                "fase": "Lua Minguante"
+            },
+            {
+                "data": "2025-02-27",
+                "fase": "Lua Nova"
+            }
+        ],
+        "3": [
+            {
+                "data": "2025-03-06",
+                "fase": "Lua Crescente"
+            },
+            {
+                "data": "2025-03-14",
+                "fase": "Lua Cheia"
+            },
+            {
+                "data": "2025-03-22",
+                "fase": "Lua Minguante"
+            },
+            {
+                "data": "2025-03-29",
+                "fase": "Lua Nova"
+            }
+        ],
+        "4": [
+            {
+                "data": "2025-04-04",
+                "fase": "Lua Crescente"
+            },
+            {
+                "data": "2025-04-12",
+                "fase": "Lua Cheia"
+            },
+            {
+                "data": "2025-04-20",
+                "fase": "Lua Minguante"
+            },
+            {
+                "data": "2025-04-27",
+                "fase": "Lua Nova"
+            }
+        ],
+        "5": [
+            {
+                "data": "2025-05-04",
+                "fase": "Lua Crescente"
+            },
+            {
+                "data": "2025-05-12",
+                "fase": "Lua Cheia"
+            },
+            {
+                "data": "2025-05-20",
+                "fase": "Lua Minguante"
+            },
+            {
+                "data": "2025-05-27",
+                "fase": "Lua Nova"
+            }
+        ],
+        "6": [
+            {
+                "data": "2025-06-03",
+                "fase": "Lua Crescente"
+            },
+            {
+                "data": "2025-06-11",
+                "fase": "Lua Cheia"
+            },
+            {
+                "data": "2025-06-18",
+                "fase": "Lua Minguante"
+            },
+            {
+                "data": "2025-06-25",
+                "fase": "Lua Nova"
+            }
+        ],
+        "7": [
+            {
+                "data": "2025-07-02",
+                "fase": "Lua Crescente"
+            },
+            {
+                "data": "2025-07-10",
+                "fase": "Lua Cheia"
+            },
+            {
+                "data": "2025-07-17",
+                "fase": "Lua Minguante"
+            },
+            {
+                "data": "2025-07-24",
+                "fase": "Lua Nova"
+            }
+        ],
+        "8": [
+            {
+                "data": "2025-08-01",
+                "fase": "Lua Crescente"
+            },
+            {
+                "data": "2025-08-09",
+                "fase": "Lua Cheia"
+            },
+            {
+                "data": "2025-08-16",
+                "fase": "Lua Minguante"
+            },
+            {
+                "data": "2025-08-23",
+                "fase": "Lua Nova"
+            }
+        ],
+        "9": [
+            {
+                "data": "2025-09-07",
+                "fase": "Lua Cheia"
+            },
+            {
+                "data": "2025-09-14",
+                "fase": "Lua Minguante"
+            },
+            {
+                "data": "2025-09-21",
+                "fase": "Lua Nova"
+            },
+            {
+                "data": "2025-09-29",
+                "fase": "Lua Crescente"
+            }
+        ],
+        "10": [
+            {
+                "data": "2025-10-07",
+                "fase": "Lua Cheia"
+            },
+            {
+                "data": "2025-10-13",
+                "fase": "Lua Minguante"
+            },
+            {
+                "data": "2025-10-21",
+                "fase": "Lua Nova"
+            },
+            {
+                "data": "2025-10-29",
+                "fase": "Lua Crescente"
+            }
+        ],
+        "11": [
+            {
+                "data":"2025-11-05",
+                "fase":"Lua Cheia"
+            },
+            {
+                "data":"2025-11-12",
+                "fase":"Lua Minguante"
+            },
+            {
+                "data":"2025-11-20",
+                "fase":"Lua Nova"
+            },
+            {
+                "data":"2025-11-28",
+                "fase":"Lua Crescente"
+            }
+        ],
+        "12": [
+            {
+                "data":"2025-12-04",
+                "fase":"Lua Cheia"
+            },
+            {
+                "data":"2025-12-11",
+                "fase":"Lua Minguante"
+            },
+            {
+                "data":"2025-12-19",
+                "fase":"Lua Nova"
+            },
+            {
+                "data":"2025-12-27",
+                "fase":"Lua Crescente"
+            }
+        ]
     }
 }
