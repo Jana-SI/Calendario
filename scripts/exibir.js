@@ -1,7 +1,7 @@
 // exibir.js
 import { gerarCalendario } from './calendario.js';
 import { carregarFeriados } from "./feriadosNacionais.js";
-import { getSeason } from "./estacoesAno.js";
+import { exibirEstacaoDoMes } from "./estacoesAno.js";
 import { exibirFasesDaLua } from "./fasesLua.js";
 
 // Recupere os elementos do DOM
@@ -58,7 +58,8 @@ function exibirCalendario(cidade, mes) {
         const anoAtual = new Date().getFullYear();
         calendarioContainer.innerHTML = gerarCalendario(anoAtual, mes);
         carregarFeriados(anoAtual, mes);
-        document.getElementById("estacaoDoAno").innerHTML = getSeason(mes);
+
+        exibirEstacaoDoMes(anoAtual, mes)
 
         exibirFasesDaLua(anoAtual, mes);
 
