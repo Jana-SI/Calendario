@@ -59,7 +59,7 @@ function exibirCalendario(cidade, mes) {
         calendarioContainer.innerHTML = gerarCalendario(anoAtual, mes);
         carregarFeriados(anoAtual, mes);
 
-        exibirEstacaoDoMes(anoAtual, mes)
+        exibirEstacaoDoMes(mes, anoAtual);
 
         exibirFasesDaLua(anoAtual, mes);
 
