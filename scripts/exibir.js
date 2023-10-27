@@ -3,6 +3,7 @@ import { gerarCalendario } from './calendario.js';
 import { carregarFeriados } from "./feriadosNacionais.js";
 import { exibirEstacaoDoMes } from "./estacoesAno.js";
 import { exibirFasesDaLua } from "./fasesLua.js";
+import { calcularDataMaePai } from "./dia_maes_pais.js"
 
 // Recupere os elementos do DOM
 const estadoSelect = document.getElementById("estado");
@@ -56,12 +57,21 @@ function exibirCalendario(cidade, mes) {
     if (cidade && mes) {
         // Chame a função gerarCalendario para exibir o calendário
         const anoAtual = new Date().getFullYear();
+
         calendarioContainer.innerHTML = gerarCalendario(anoAtual, mes);
+
         carregarFeriados(anoAtual, mes);
 
         exibirEstacaoDoMes(mes, anoAtual);
 
         exibirFasesDaLua(anoAtual, mes);
+
+        mes = parseInt(mes); // Converte a string para um número
+
+        if (mes === 5 || mes === 8) {
+            
+            document.getElementById("maes_ou_pais").textContent = calcularDataMaePai(mes, anoAtual);
+        }
 
     } else {
         alert("Por favor, escolha uma cidade e um mês antes de ver o calendário.");

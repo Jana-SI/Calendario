@@ -25,13 +25,10 @@ export function exibirEstacaoDoMes(mes, ano) {
                 paragrafo.textContent = `Estação: ${estacao}, Data: ${dataHora.data}, Hora: ${dataHora.hora}`;
                 elementoHtml.appendChild(paragrafo);
 
-                console.log(`Estação: ${estacao}, Data: ${dataHora.data}, Hora: ${dataHora.hora}`);
-
             } else {
 
                 paragrafo.textContent = `Estação: ${estacao}`;
                 elementoHtml.appendChild(paragrafo);
-                console.log(`Estação: ${estacao}`);
             }
         })
         .catch(error => {
