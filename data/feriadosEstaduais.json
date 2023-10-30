@@ -1,0 +1,120 @@
+{
+    "estados": [
+        {
+            "estado": "Acre",
+            "sigla": "AC",
+            "feridos": [
+                {
+                    "data": "20/01",
+                    "nome": "Dia do Católico"
+                },
+                {
+                    "data": "23/01",
+                    "nome": "Dia do evangélico"
+                },
+                {
+                    "data": "08/03",
+                    "nome": "Dia Internacional da Mulher"
+                },
+                {
+                    "data": "15/06",
+                    "nome": "Aniversário do Acre"
+                },
+                {
+                    "data": "06/08",
+                    "nome": "Início da Revolução Acriana"
+                },
+                {
+                    "data": "05/09",
+                    "nome": "Dia da Amazônia"
+                },
+                {
+                    "data": "17/11",
+                    "nome": "Assinatura do Tratado de Petrópolis"
+                }
+            ]
+        },
+        {
+            "estado": "Alagoas",
+            "sigla": "AL",
+            "feriados": [
+                {
+                    "data": "24/06",
+                    "nome": "São João"
+                },
+                {
+                    "data": "29/06",
+                    "nome": "São Pedro"
+                },
+                {
+                    "data": "16/09",
+                    "nome": "Emancipação política de Alagoas"
+                },
+                {
+                    "data": "20/11",
+                    "nome": "Consciência Negra"
+                }
+            ]
+        },
+        {
+            "estado": "Amapá",
+            "sigla": "AP",
+            "feriados": [
+                {
+                    "data": "19/03",
+                    "nome": "Dia de São José"
+                },
+                {
+                    "data": "25/07",
+                    "nome": "São Tiago"
+                },
+                {
+                    "data": "05/12",
+                    "nome": "Criação do estado"
+                },
+                {
+                    "data": "20/11",
+                    "nome": "Consciência Negra"
+                }
+            ]
+        },
+        {
+            "estado": "Amazonas",
+            "sigla": "AM",
+            "feriados": [
+                {
+                    "data": "05/09",
+                    "nome": "Elevação do Amazonas à categoria de província"
+                },
+                {
+                    "data": "20/11",
+                    "nome": "Consciência Negra"
+                },
+                {
+                    "data": "08/12",
+                    "nome": "Dia de Nossa Senhora da Conceição"
+                }
+            ]
+        },
+        {
+            "estado": "Bahia",
+            "sigla": "BA",
+            "feriados": [
+                {
+                    "data": "02/07",
+                    "nome": "Independência da Bahia"
+                }
+            ]
+        },
+        {
+            "estado": "",
+            "sigla": "",
+            "feriados": [
+                {
+                    "data": "",
+                    "nome": ""
+                }
+            ]
+        }
+    ]
+}
