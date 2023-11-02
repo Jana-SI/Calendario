@@ -10,7 +10,7 @@
                 },
                 {
                     "data": "23/01",
-                    "nome": "Dia do evangélico"
+                    "nome": "Dia do Evangélico"
                 },
                 {
                     "data": "08/03",
@@ -48,7 +48,7 @@
                 },
                 {
                     "data": "16/09",
-                    "nome": "Emancipação política de Alagoas"
+                    "nome": "Emancipação Política de Alagoas"
                 },
                 {
                     "data": "20/11",
@@ -70,7 +70,7 @@
                 },
                 {
                     "data": "05/12",
-                    "nome": "Criação do estado"
+                    "nome": "Criação do Estado"
                 },
                 {
                     "data": "20/11",
@@ -107,12 +107,274 @@
             ]
         },
         {
-            "estado": "",
-            "sigla": "",
+            "estado": "Ceará",
+            "sigla": "CE",
             "feriados": [
                 {
-                    "data": "",
-                    "nome": ""
+                    "data": "19/03",
+                    "nome": "São José"
+                },
+                {
+                    "data": "25/03",
+                    "nome": "Data Magna do Ceará"
+                }
+            ]
+        },
+        {
+            "estado": "Distrito Federal",
+            "sigla": "DF",
+            "feriados": [
+                {
+                    "data": "21/04",
+                    "nome": "Fundação de Brasília"
+                },
+                {
+                    "data": "30/11",
+                    "nome": "Dia do Evangélico"
+                }
+            ]
+        },
+        {
+            "estado": "Espírito Santo",
+            "sigla": "ES",
+            "feriados": [
+                {
+                    "data": "17/04",
+                    "nome": "Nossa Senhora da Penha (Padroeira do Estado)"
+                },
+                {
+                    "data": "23/05",
+                    "nome": "Colonização do Solo Espírito-santense"
+                }
+            ]
+        },
+        {
+            "estado": "Goiás",
+            "sigla": "GO",
+            "feriados": [
+                {
+                    "data": "28/12",
+                    "nome": "Dia do Servidor Público"
+                }
+            ]
+        },
+        {
+            "estado": "Maranhão",
+            "sigla": "MA",
+            "feriados": [
+                {
+                    "data": "28/07",
+                    "nome": "Adesão do Maranhão à independência do Brasil"
+                },
+                {
+                    "data": "08/12",
+                    "nome": "Dia de Nossa Senhora da Conceição"
+                }
+            ]
+        },
+        {
+            "estado": "Mato Grosso",
+            "sigla": "MT",
+            "feriados": [
+                {
+                    "data": "20/11",
+                    "nome": "Consciência Negra"
+                }
+            ]
+        },
+        {
+            "estado": "Mato Grosso do Sul",
+            "sigla": "MS",
+            "feriados": [
+                {
+                    "data": "11/12",
+                    "nome": "Criação do Estado"
+                }
+            ]
+        },
+        {
+            "estado": "Minas Gerais",
+            "sigla": "MG",
+            "feriados": [
+                {
+                    "data": "21/04",
+                    "nome": "Data Magna de MG"
+                }
+            ]
+        },
+        {
+            "estado": "Pará",
+            "sigla": "PA",
+            "feriados": [
+                {
+                    "data": "15/08",
+                    "nome": "Adesão do Grão-Pará à independência do Brasil"
+                }
+            ]
+        },
+        {
+            "estado": "Paraíba",
+            "sigla": "PB",
+            "feriados": [
+                {
+                    "data": "05/08",
+                    "nome": "Fundação do Estado"
+                },
+                {
+                    "data": "08/12",
+                    "nome": "Nossa Senhora da Conceição"
+                }
+            ]
+        },
+        {
+            "estado": "Paraná",
+            "sigla": "PR",
+            "feriados": [
+                {
+                    "data": "19/12",
+                    "nome": "Emancipação política do Paraná"
+                }
+            ]
+        },
+        {
+            "estado": "Pernambuco",
+            "sigla": "PE",
+            "feriados": [
+                {
+                    "data": "06/03",
+                    "nome": "Revolução Pernambucana (Data Magna)"
+                },
+                {
+                    "data": "24/06",
+                    "nome": "São João"
+                }
+            ]
+        },
+        {
+            "estado": "Piauí",
+            "sigla": "PI",
+            "feriados": [
+                {
+                    "data": "13/03",
+                    "nome": "Dia da Batalha do Jenipapo"
+                },
+                {
+                    "data": "19/12",
+                    "nome": "Dia do Piauí"
+                }
+            ]
+        },
+        {
+            "estado": "Rio de Janeiro",
+            "sigla": "RJ",
+            "feriados": [
+                {
+                    "data": "23/04",
+                    "nome": "Dia de São Jorge"
+                },
+                {
+                    "data": "28/12",
+                    "nome": "Dia do Funcionário Público"
+                },
+                {
+                    "data": "20/11",
+                    "nome": "Zumbi dos Palmares"
+                }
+            ]
+        },
+        {
+            "estado": "Rio Grande do Norte",
+            "sigla": "RN",
+            "feriados": [
+                {
+                    "data": "29/06",
+                    "nome": "Dia de São Pedro"
+                },
+                {
+                    "data": "03/12",
+                    "nome": "Mártires de Cunhaú e Uruaçu"
+                }
+            ]
+        },
+        {
+            "estado": "Rio Grande do Sul",
+            "sigla": "RS",
+            "feriados": [
+                {
+                    "data": "20/09",
+                    "nome": "Revolução Farroupilha"
+                }
+            ]
+        },
+        {
+            "estado": "Rondônia",
+            "sigla": "RO",
+            "feriados": [
+                {
+                    "data": "04/01",
+                    "nome": "Criação do Estado"
+                },
+                {
+                    "data": "18/06",
+                    "nome": "Dia do Evangélico"
+                }
+            ]
+        },
+        {
+            "estado": "Roraima",
+            "sigla": "RR",
+            "feriados": [
+                {
+                    "data": "05/12",
+                    "nome": "Criação de Roraima"
+                }
+            ]
+        },
+        {
+            "estado": "Santa Catarina",
+            "sigla": "SC",
+            "feriados": [
+                {
+                    "data": "11/08",
+                    "nome": "Criação da capitania, separando-se de SP"
+                }
+            ]
+        },
+        {
+            "estado": "São Paulo",
+            "sigla": "SP",
+            "feriados": [
+                {
+                    "data": "09/07",
+                    "nome": "Revolução Constitucionalista de 1932"
+                }
+            ]
+        },
+        {
+            "estado": "Sergipe",
+            "sigla": "SE",
+            "feriados": [
+                {
+                    "data": "08/07",
+                    "nome": "Autonomia Política de Sergipe"
+                }
+            ]
+        },
+        {
+            "estado": "Tocantins",
+            "sigla": "TO",
+            "feriados": [
+                {
+                    "data": "01/01",
+                    "nome": "Instalação de Tocantins"
+                },
+                {
+                    "data": "08/09",
+                    "nome": "Nossa Senhora da Natividade"
+                },
+                {
+                    "data": "05/12",
+                    "nome": "Criação de Tocantins"
                 }
             ]
         }
