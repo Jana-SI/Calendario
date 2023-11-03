@@ -1,6 +1,6 @@
 // exibir.js
 import { gerarCalendario } from './calendario.js';
-import { carregarFeriados } from "./feriadosNacionais.js";
+import { carregarFeriados, exibirFeriadosPorEstado } from "./feriados.js";
 import { exibirEstacaoDoMes } from "./estacoesAno.js";
 import { exibirFasesDaLua } from "./fasesLua.js";
 import { calcularDataMaePai } from "./dia_maes_pais.js"
@@ -45,22 +45,24 @@ verCalendarioButton.addEventListener("click", () => {
     // Verifique se os três seletores têm valores selecionados
     if (estadoSelecionado && cidadeSelecionada && mesSelecionado) {
         // Chame uma função para exibir o calendário com base nas escolhas do usuário
-        exibirCalendario(cidadeSelecionada, mesSelecionado);
+        exibirCalendario(estadoSelecionado, cidadeSelecionada, mesSelecionado);
     } else {
         alert("Por favor, escolha uma cidade e um mês antes de ver o calendário.");
     }
 });
 
 // Função para exibir o calendário com base na cidade e mês selecionados
-function exibirCalendario(cidade, mes) {
+function exibirCalendario(siglaEstado, cidade, mes) {
     // Verifique se a cidade e o mês foram selecionados
-    if (cidade && mes) {
+    if (siglaEstado && cidade && mes) {
         // Chame a função gerarCalendario para exibir o calendário
         const anoAtual = new Date().getFullYear();
 
         calendarioContainer.innerHTML = gerarCalendario(anoAtual, mes);
 
         carregarFeriados(anoAtual, mes);
+
+        exibirFeriadosPorEstado(siglaEstado, mes)
 
         exibirEstacaoDoMes(mes, anoAtual);
 

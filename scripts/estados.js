@@ -12,7 +12,7 @@ function preencherSelectComEstados() {
             // Preencha o select de estados com os estados ordenados
             data.forEach(estado => {
                 const option = document.createElement("option");
-                option.value = estado.id;
+                option.value = estado.sigla;
                 option.text = estado.nome;
                 estadoSelect.appendChild(option);
             });
