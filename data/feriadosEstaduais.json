@@ -3,7 +3,7 @@
         {
             "estado": "Acre",
             "sigla": "AC",
-            "feridos": [
+            "feriados": [
                 {
                     "data": "20/01",
                     "nome": "Dia do Católico"

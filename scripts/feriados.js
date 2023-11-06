@@ -1,6 +1,6 @@
 // Função para carregar feriados do mês selecionado
 export function carregarFeriados(anoAtual, mesSelecionado) {
-  const feriadosDiv = document.getElementById('feriados');
+  const feriadosDiv = document.getElementById('feriadosNacionais');
 
   const url = `https://date.nager.at/api/v3/PublicHolidays/${anoAtual}/BR`;
 
@@ -44,8 +44,11 @@ export function exibirFeriadosPorEstado(siglaEstado, mes) {
       // Encontre o estado com a sigla correspondente
       const estado = data.estados.find(e => e.sigla === siglaEstado);
       console.log(estado);
+      console.log(siglaEstado);
+      console.log(data);
 
-      if (estado) {
+
+      if (estado && estado.feriados) {
         // Filtra os feriados no mês desejado
         const feriadosNoMes = estado.feriados.filter(feriado => {
           const [feriadoDia, feriadoMes] = feriado.data.split('/');

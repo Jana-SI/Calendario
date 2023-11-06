@@ -4,27 +4,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Calendario mensal por cidade">
-    <meta name="keywords" content="calendario, cidade, calendario mensal">
+    <meta name="description" content="Calendario mensal por estado">
+    <meta name="keywords" content="calendario, estado, calendario mensal">
     <meta name="author" content="Janaina">
 
-    <title>Calendario mensal por cidade</title>
+    <title>Calendario mensal por estado</title>
 
     <link rel="stylesheet" type="text/css" href="/style/estilo.css">
 </head>
 
 <body>
-    <h1>Calendário Mensal por Cidade <span id="anoAtual">Ano</span></h1>
+    <h1>Calendário Mensal por Estado <span id="anoAtual">Ano</span></h1>
 
     <label for="estado">Escolha um estado:</label>
     <select id="estado">
         <option value="" selected>Selecione um estado</option>
-    </select>
-
-
-    <label for="cidade">Escolha uma cidade:</label>
-    <select id="cidade">
-        <option value="" selected>Selecione uma cidade</option>
     </select>
 
 
@@ -37,7 +31,7 @@
 
     <div id="calendario"></div>
 
-    <div id="feriados"></div>
+    <div id="feriadosNacionais"></div>
     
     <div id="feriadosEstaduais"></div>
     
@@ -52,7 +46,6 @@
     <script src="/scripts/exibir.js" type="module"></script>
     <script src="/scripts/anoAtual.js"></script>
     <script src="/scripts/estados.js" type="module"></script>
-    <script src="/scripts/cidades.js" type="module"></script>
     <script src="/scripts/mes.js"></script>
     <script src="/scripts/calendario.js" type="module"></script>
     <script src="/scripts/feriados.js" type="module"></script>
