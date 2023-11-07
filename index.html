@@ -10,39 +10,76 @@
 
     <title>Calendario mensal por estado</title>
 
+    <!-- css -->
     <link rel="stylesheet" type="text/css" href="/style/estilo.css">
+    <link rel="stylesheet" type="text/css" href="/style/fontes.css">
+
+    <!-- bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 
 <body>
-    <h1>Calendário Mensal por Estado <span id="anoAtual">Ano</span></h1>
-
-    <label for="estado">Escolha um estado:</label>
-    <select id="estado">
-        <option value="" selected>Selecione um estado</option>
-    </select>
-
-
-    <label for="mes">Escolha um mês:</label>
-    <select id="mes">
-        <option value="" selected>Selecione um mês</option>
-    </select>
-
-    <button id="verCalendario" disabled>Ver Calendário</button>
-
-    <div id="calendario"></div>
-
-    <div id="feriadosNacionais"></div>
+    <div class="container-fluid">
+        <div class="row vh-100">
+            <div class="col-6 offset-3 text-center mt-5">
+                <h1>Calendário Mensal por Estado <span id="anoAtual">Ano</span></h1>
+            </div>
     
-    <div id="feriadosEstaduais"></div>
+            <div class="col-6 offset-3 text-center mt-5">
+                <div class="form-floating">
+                    <select class="form-select" id="estado">
+                        <option value="" selected>Selecione um estado</option>
+                    </select>
+                    <label for="estado">Escolha um estado:</label>
+                </div>
+            </div>
     
-    <div id="maes_ou_pais"></div>
+            <div class="col-6 offset-3 text-center mt-5">
+                <div class="form-floating">
+                    <select class="form-select" id="mes">
+                        <option value="" selected>Selecione um mês</option>
+                    </select>
+                    <label for="mes">Escolha um mês:</label>
+                </div>
+            </div>
+    
+            <div class="col-6 offset-3 text-center">
+                <button id="verCalendario" disabled>Ver Calendário</button>
+            </div>
+    
+            <div class="col-6 offset-3">
+                <div id="calendario"></div>
+            </div>
+    
+            <div class="col-6 offset-3">
+                <div id="feriadosNacionais"></div>
+            </div>
+    
+            <div class="col-6 offset-3">
+                <div id="feriadosEstaduais"></div>
+            </div>
+    
+            <div class="col-6 offset-3">
+                <div id="maes_ou_pais"></div>
+            </div>
+    
+            <div class="col-6 offset-3">
+                <div id="estacaoDoMes"></div>
+            </div>
+    
+            <div class="col-6 offset-3">
+                <div id="tempoRestante"></div>
+            </div>
+    
+            <div class="col-6 offset-3">
+                <div id="fasesDaLua"></div>
+            </div>
+        </div>
+    </div>
+    
 
-    <div id="estacaoDoMes"></div>
-
-    <div id="tempoRestante"></div>
-
-    <div id="fasesDaLua"></div>
-
+    <!-- javascript -->
     <script src="/scripts/exibir.js" type="module"></script>
     <script src="/scripts/anoAtual.js"></script>
     <script src="/scripts/estados.js" type="module"></script>
@@ -52,6 +89,11 @@
     <script src="/scripts/estacoesAno.js" type="module"></script>
     <script src="/scripts/fasesLua.js" type="module"></script>
     <script src="/scripts/dia_maes_pais.js" type="module"></script>
+
+    <!-- bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>

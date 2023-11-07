@@ -69,6 +69,8 @@ function exibirCalendario(siglaEstado, mes) {
         if (mes === 5 || mes === 8) {
             
             document.getElementById("maes_ou_pais").textContent = calcularDataMaePai(mes, anoAtual);
+        }else{
+            document.getElementById("maes_ou_pais").textContent = ""; 
         }
 
     } else {
