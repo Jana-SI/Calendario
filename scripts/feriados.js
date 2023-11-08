@@ -61,17 +61,16 @@ export function exibirFeriadosPorEstado(siglaEstado, mes) {
         document.getElementById('feriadosEstaduais').innerHTML = '';
 
         // Construa o HTML com a lista de feriados
-        let html = '<ul>';
+        let feriadosTexto = '';
         feriadosNoMes.forEach(feriado => {
           const [feriadoDia, feriadoMes] = feriado.data.split('/');
           const feriadoFormatado = `${feriadoDia}/${feriadoMes}: ${feriado.nome}`;
-          html += `<li>${feriadoFormatado}</li>`;
+          feriadosTexto += feriadoFormatado + '\n'; // Adiciona uma quebra de linha para separar os feriados
         });
-        html += '</ul>';
-
 
         // Exiba o HTML na página
-        document.getElementById('feriadosEstaduais').innerHTML = html;
+        document.getElementById('feriadosEstaduais').innerText = feriadosTexto;
+
       } else {
         console.error("Estado não encontrado");
       }

@@ -18,18 +18,13 @@ export function exibirEstacaoDoMes(mes, ano) {
 
             const elementoHtml = document.getElementById("estacaoDoMes");
             elementoHtml.innerHTML = "";
-            const paragrafo = document.createElement("p");
 
             if (dataHora && dataHora.data && dataHora.hora) {
-
-                paragrafo.textContent = `Estação: ${estacao}, Data: ${dataHora.data}, Hora: ${dataHora.hora}`;
-                elementoHtml.appendChild(paragrafo);
-
+                elementoHtml.textContent = `Estação: ${estacao}, Data: ${dataHora.data}, Hora: ${dataHora.hora}`;
             } else {
-
-                paragrafo.textContent = `Estação: ${estacao}`;
-                elementoHtml.appendChild(paragrafo);
+                elementoHtml.textContent = `Estação: ${estacao}`;
             }
+
         })
         .catch(error => {
             console.error('Erro ao carregar o arquivo JSON:', error);

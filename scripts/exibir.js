@@ -67,10 +67,10 @@ function exibirCalendario(siglaEstado, mes) {
         mes = parseInt(mes); // Converte a string para um número
 
         if (mes === 5 || mes === 8) {
-            
+
             document.getElementById("maes_ou_pais").textContent = calcularDataMaePai(mes, anoAtual);
-        }else{
-            document.getElementById("maes_ou_pais").textContent = ""; 
+        } else {
+            document.getElementById("maes_ou_pais").textContent = "";
         }
 
     } else {

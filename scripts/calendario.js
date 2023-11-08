@@ -5,7 +5,7 @@ export function gerarCalendario(ano, mes) {
   const primeiraSemana = new Date(ano, mes - 1, 1).getDay();
   const diasDaSemana = ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'];
 
-  let calendarioHTML = `<table><tr>`;
+  let calendarioHTML = `<table class="table table-borderless"><tr>`;
   
   // Cabeçalho do calendário com os nomes dos dias da semana
   for (let diaSemana = 0; diaSemana < 7; diaSemana++) {
