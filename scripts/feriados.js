@@ -8,6 +8,7 @@ export function carregarFeriados(anoAtual, mesSelecionado) {
     .then((response) => response.json())
     .then((feriados) => {
       feriadosDiv.innerHTML = '';
+      document.getElementById("feriadosNacionais").style.display = "none";
 
       feriados.forEach((feriado) => {
         const dataFeriado = new Date(feriado.date);
@@ -22,7 +23,9 @@ export function carregarFeriados(anoAtual, mesSelecionado) {
           const feriadoElement = document.createElement('div');
           feriadoElement.textContent = `${diaFeriadoFormatado}/${mesFeriadoFormatado}/${anoFeriado}: ${feriado.localName}`;
           feriadosDiv.appendChild(feriadoElement);
+          document.getElementById("feriadosNacionais").style.display = "block";
         }
+
       });
     })
     .catch((error) => {
@@ -35,18 +38,15 @@ export function exibirFeriadosPorEstado(siglaEstado, mes) {
 
   const feriadosEstaduais = './data/feriadosEstaduais.json';
 
-  console.log(siglaEstado, mes);
-
   fetch(feriadosEstaduais)
     .then(response => response.json())
     .then(data => {
 
+      // Limpe o conteúdo anterior na div
+      document.getElementById('feriadosEstaduais').innerHTML = '';
+
       // Encontre o estado com a sigla correspondente
       const estado = data.estados.find(e => e.sigla === siglaEstado);
-      console.log(estado);
-      console.log(siglaEstado);
-      console.log(data);
-
 
       if (estado && estado.feriados) {
         // Filtra os feriados no mês desejado
@@ -54,11 +54,6 @@ export function exibirFeriadosPorEstado(siglaEstado, mes) {
           const [feriadoDia, feriadoMes] = feriado.data.split('/');
           return parseInt(feriadoMes) === parseInt(mes);
         });
-
-        console.log(feriadosNoMes);
-
-        // Limpe o conteúdo anterior na div
-        document.getElementById('feriadosEstaduais').innerHTML = '';
 
         // Construa o HTML com a lista de feriados
         let feriadosTexto = '';
@@ -68,8 +63,14 @@ export function exibirFeriadosPorEstado(siglaEstado, mes) {
           feriadosTexto += feriadoFormatado + '\n'; // Adiciona uma quebra de linha para separar os feriados
         });
 
-        // Exiba o HTML na página
-        document.getElementById('feriadosEstaduais').innerText = feriadosTexto;
+        if (feriadosTexto === '') {
+          document.getElementById("feriadosEstaduais").style.display = "none";
+        } else {
+          // Exiba o HTML na página
+          document.getElementById('feriadosEstaduais').innerText = feriadosTexto;
+          document.getElementById("feriadosEstaduais").style.display = "block";
+        }
+
 
       } else {
         console.error("Estado não encontrado");

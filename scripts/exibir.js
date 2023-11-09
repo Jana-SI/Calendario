@@ -11,6 +11,13 @@ const mesSelect = document.getElementById("mes");
 const verCalendarioButton = document.getElementById("verCalendario");
 const calendarioContainer = document.getElementById("calendario");
 
+const divEstadoSelecionado = document.getElementById("estadoSelecionado");
+
+estadoSelect.addEventListener("change", function() {
+    const estadoSelecionado = estadoSelect.options[estadoSelect.selectedIndex].text;
+    divEstadoSelecionado.textContent = `Estado: ${estadoSelecionado}`;
+  });
+
 // Adicione um ouvinte de eventos para os seletores
 estadoSelect.addEventListener("change", validarSelecao);
 mesSelect.addEventListener("change", validarSelecao);
@@ -51,6 +58,7 @@ function exibirCalendario(siglaEstado, mes) {
 
     // Verifique se o estado e o mês foram selecionados
     if (siglaEstado && mes) {
+
         // Chame a função gerarCalendario para exibir o calendário
         const anoAtual = new Date().getFullYear();
 
@@ -67,10 +75,11 @@ function exibirCalendario(siglaEstado, mes) {
         mes = parseInt(mes); // Converte a string para um número
 
         if (mes === 5 || mes === 8) {
-
             document.getElementById("maes_ou_pais").textContent = calcularDataMaePai(mes, anoAtual);
+            document.getElementById("maes_ou_pais").style.display = "block";
         } else {
             document.getElementById("maes_ou_pais").textContent = "";
+            document.getElementById("maes_ou_pais").style.display = "none";
         }
 
     } else {

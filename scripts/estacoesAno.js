@@ -21,8 +21,10 @@ export function exibirEstacaoDoMes(mes, ano) {
 
             if (dataHora && dataHora.data && dataHora.hora) {
                 elementoHtml.textContent = `Estação: ${estacao}, Data: ${dataHora.data}, Hora: ${dataHora.hora}`;
+                document.getElementById("estacaoDoMes").style.display = "block";
             } else {
                 elementoHtml.textContent = `Estação: ${estacao}`;
+                document.getElementById("estacaoDoMes").style.display = "block";
             }
 
         })

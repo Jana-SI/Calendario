@@ -27,6 +27,8 @@ export function exibirFasesDaLua(ano, mes) {
                     ul.appendChild(li);
                 });
 
+                document.getElementById("fasesDaLua").style.display = "block";
+
             } else {
                 console.error("Ano ou mês não encontrados no JSON.");
             }
