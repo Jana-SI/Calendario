@@ -20,13 +20,16 @@ export function exibirEstacaoDoMes(mes, ano) {
             elementoHtml.innerHTML = "";
 
             if (dataHora && dataHora.data && dataHora.hora) {
-                elementoHtml.textContent = `Estação: ${estacao}, Data: ${dataHora.data}, Hora: ${dataHora.hora}`;
-                document.getElementById("estacaoDoMes").style.display = "block";
-            } else {
-                elementoHtml.textContent = `Estação: ${estacao}`;
+
+                // Modificando a preposição 'do' ou 'da' com base na estação
+                let preposicao = "do";
+                if (estacao.toLowerCase() === "primavera") {
+                    preposicao = "da";
+                }
+
+                elementoHtml.textContent = `Início ${preposicao} ${estacao}, Data: ${dataHora.data}, Hora: ${dataHora.hora}`;
                 document.getElementById("estacaoDoMes").style.display = "block";
             }
-
         })
         .catch(error => {
             console.error('Erro ao carregar o arquivo JSON:', error);

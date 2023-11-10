@@ -7,20 +7,22 @@ import { calcularDataMaePai } from "./dia_maes_pais.js"
 
 // Recupere os elementos do DOM
 const estadoSelect = document.getElementById("estado");
+const mesExibir = document.getElementById("mesExibir");
 const mesSelect = document.getElementById("mes");
-const verCalendarioButton = document.getElementById("verCalendario");
 const calendarioContainer = document.getElementById("calendario");
 
 const divEstadoSelecionado = document.getElementById("estadoSelecionado");
 
+// Ocultar o select de mês inicialmente
+mesExibir.style.display = "none";
+
 estadoSelect.addEventListener("change", function() {
     const estadoSelecionado = estadoSelect.options[estadoSelect.selectedIndex].text;
     divEstadoSelecionado.textContent = `Estado: ${estadoSelecionado}`;
-  });
 
-// Adicione um ouvinte de eventos para os seletores
-estadoSelect.addEventListener("change", validarSelecao);
-mesSelect.addEventListener("change", validarSelecao);
+    // Exibir o select de mês após a seleção do estado
+    mesExibir.style.display = "block";
+  });
 
 // Adicione um ouvinte de eventos para os seletores
 estadoSelect.addEventListener("change", validarSelecao);
@@ -30,28 +32,11 @@ function validarSelecao() {
     const estadoSelecionado = estadoSelect.value;
     const mesSelecionado = mesSelect.value;
 
-    // Verifique se os três seletores têm valores selecionados
+    // Verificar se ambos os selects foram escolhidos
     if (estadoSelecionado && mesSelecionado) {
-        verCalendarioButton.disabled = false; // Ative o botão
-    } else {
-        verCalendarioButton.disabled = true; // Desative o botão
+        exibirCalendario(estadoSelecionado, mesSelecionado); // Chamar a função para exibir o calendário
     }
 }
-
-
-// Adicione um ouvinte de eventos para o botão "Ver Calendário"
-verCalendarioButton.addEventListener("click", () => {
-    const estadoSelecionado = estadoSelect.value;
-    const mesSelecionado = mesSelect.value;
-
-    // Verifique se os três seletores têm valores selecionados
-    if (estadoSelecionado && mesSelecionado) {
-        // Chame uma função para exibir o calendário com base nas escolhas do usuário
-        exibirCalendario(estadoSelecionado, mesSelecionado);
-    } else {
-        alert("Por favor, escolha uma cidade e um mês antes de ver o calendário.");
-    }
-});
 
 // Função para exibir o calendário com base na cidade e mês selecionados
 function exibirCalendario(siglaEstado, mes) {
