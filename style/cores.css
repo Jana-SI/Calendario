@@ -1,4 +1,15 @@
-:root{
-    --fundo: ;
-    --titulo: ;
+:root {
+    --fundo1: #F29F05;
+    --fundo2: #F2CB05;
+    --titulo: #021F59;
+    --bordas: #021F59;
+    --texto: ;
+    --textoPrincipal: ;
+
+/*     #021F59
+#03A61C
+#067302
+#F2CB05
+#F29F05 */
+
 }

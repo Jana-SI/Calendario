@@ -7,7 +7,7 @@ export function gerarCalendario(ano, mes) {
   // Capitaliza a primeira letra do nome do mês
   const nomeDoMesCapitalizado = nomeDoMes.charAt(0).toUpperCase() + nomeDoMes.slice(1);
 
-  let calendarioHTML = `<table class="table table-borderless table-dark"><tr>`;
+  let calendarioHTML = `<table class="table table-borderless"><tr>`;
   
   // Nova linha para exibir o nome do mês
   calendarioHTML += `<th colspan="7" class="text-center"><h3>${nomeDoMesCapitalizado}</h3></th></tr><tr>`;
