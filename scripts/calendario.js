@@ -10,11 +10,12 @@ export function gerarCalendario(ano, mes) {
   let calendarioHTML = `<table class="table table-borderless"><tr>`;
   
   // Nova linha para exibir o nome do mês
-  calendarioHTML += `<th colspan="7" class="text-center"><h3>${nomeDoMesCapitalizado}</h3></th></tr><tr>`;
+  calendarioHTML += `<th colspan="7" class="text-center" id="mesSelecionado"><h3>${nomeDoMesCapitalizado}</h3></th></tr><tr>`;
 
   // Cabeçalho do calendário com os nomes dos dias da semana
   for (let diaSemana = 0; diaSemana < 7; diaSemana++) {
-    calendarioHTML += `<th>${diasDaSemana[diaSemana]}</th>`;
+    const classeDomingo = diaSemana === 0 ? 'domingo' : 'dia-semana';
+    calendarioHTML += `<th class="${classeDomingo}">${diasDaSemana[diaSemana]}</th>`;
   }
   
   calendarioHTML += `</tr><tr>`;
@@ -23,12 +24,16 @@ export function gerarCalendario(ano, mes) {
   for (let i = 0; i < primeiraSemana; i++) {
     calendarioHTML += `<td></td>`;
   }
+
   for (let dia = 1; dia <= diasNoMes; dia++) {
-    calendarioHTML += `<td>${dia}</td>`;
-    if ((dia + primeiraSemana) % 7 === 0) {
-      calendarioHTML += `</tr><tr>`;
-    }
+  // Adiciona a classe "domingo" para domingo e a classe "outro-dia" para os outros dias
+  const classeDomingo = (dia + primeiraSemana - 1) % 7 === 0 ? 'domingo' : 'outro-dia';
+  calendarioHTML += `<td class="${classeDomingo}">${dia}</td>`;
+  
+  if ((dia + primeiraSemana) % 7 === 0) {
+    calendarioHTML += `</tr><tr>`;
   }
+}
   
   calendarioHTML += `</tr></table>`;
   return calendarioHTML;

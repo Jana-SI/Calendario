@@ -19,7 +19,40 @@ h1{
     color: var(--titulo) !important;
 }
 
+h3{
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
 .card-footer{
     color: var(--titulo) !important;
     border-top: 5px solid var(--bordas) !important;
+}
+
+.form-select{
+    background-color: var(--fundo2) !important;
+    border: 3px solid var(--bordas) !important;
+    border-radius: 5px;
+    color: var(--titulo) !important;
+}
+
+#mesSelecionado, .domingo, #feriadosNacionais, #feriadosNacionaisTabela{
+    font-weight: bold;
+    color: var(--fundo2) !important;
+    background-color: var(--titulo) !important;
+}
+
+.dia-semana, #feriadosEstaduais, #maes_ou_pais{
+    font-weight: bold;
+    background-color: var(--fundo3) !important;
+    color: var(--texto) !important;
+}
+
+.outro-dia, #fasesDaLua, #fasesDaLua li{
+    background-color: var(--fundo2) !important;
+    color: var(--titulo) !important;
+}
+
+.list-group-item{
+    border: none !important;
 }

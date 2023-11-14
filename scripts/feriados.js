@@ -33,7 +33,6 @@ export function carregarFeriados(anoAtual, mesSelecionado) {
     });
 }
 
-
 export function exibirFeriadosPorEstado(siglaEstado, mes) {
 
   const feriadosEstaduais = './data/feriadosEstaduais.json';

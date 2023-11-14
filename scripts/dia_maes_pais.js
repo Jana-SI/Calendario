@@ -7,7 +7,7 @@ export function calcularDataMaePai(mes, ano) {
       const diasAtePrimeiroDomingo = 7 - diaDaSemana;
       const segundoDomingo = new Date(ano, mes - 1, 8 + diasAtePrimeiroDomingo);
   
-      return `O Dia das Mães em ${mes}/${ano} será em ${segundoDomingo.getDate()}/${mes}/${ano}.`;
+      return `${segundoDomingo.getDate()}/${mes}/${ano}: Dia das Mães`;
 
     } else if (mes === 8) { // Agosto
       // Calcula o Dia dos Pais (segundo domingo de agosto)
@@ -17,7 +17,7 @@ export function calcularDataMaePai(mes, ano) {
   
       const segundoDomingo = new Date(ano, mes - 1, diasAteSegundoDomingo + 1);
   
-      return `O Dia dos Pais em ${mes}/${ano} será em ${segundoDomingo.getDate()}/${mes}/${ano}.`;
+      return `${segundoDomingo.getDate()}/${mes}/${ano}: Dia dos Pais`;
 
     }
   }  
