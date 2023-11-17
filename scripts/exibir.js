@@ -39,19 +39,18 @@ function validarSelecao() {
 }
 
 // Função para exibir o calendário com base na cidade e mês selecionados
-function exibirCalendario(siglaEstado, mes) {
-
+async function exibirCalendario(siglaEstado, mes) {
     // Verifique se o estado e o mês foram selecionados
     if (siglaEstado && mes) {
-
         // Chame a função gerarCalendario para exibir o calendário
         const anoAtual = new Date().getFullYear();
+        const calendarioHTML = await gerarCalendario(anoAtual, mes);
 
-        calendarioContainer.innerHTML = gerarCalendario(anoAtual, mes);
+        calendarioContainer.innerHTML = calendarioHTML;
 
         carregarFeriados(anoAtual, mes);
 
-        exibirFeriadosPorEstado(siglaEstado, mes)
+        exibirFeriadosPorEstado(siglaEstado, mes);
 
         exibirEstacaoDoMes(mes, anoAtual);
 
@@ -66,7 +65,6 @@ function exibirCalendario(siglaEstado, mes) {
             document.getElementById("maes_ou_pais").textContent = "";
             document.getElementById("maes_ou_pais").style.display = "none";
         }
-
     } else {
         alert("Por favor, escolha um estado e um mês antes de ver o calendário.");
     }
