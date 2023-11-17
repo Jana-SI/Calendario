@@ -1,4 +1,4 @@
-export async function gerarCalendario(ano, mes) {
+export async function gerarCalendario(ano, mes, siglaEstado) {
   const diasNoMes = new Date(ano, mes, 0).getDate();
   const primeiraSemana = new Date(ano, mes - 1, 1).getDay();
   const diasDaSemana = ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'];
@@ -17,7 +17,8 @@ export async function gerarCalendario(ano, mes) {
   calendarioHTML += `</tr><tr>`;
 
   try {
-    const feriados = await obterFeriados(ano);
+    const feriadosNacionais = await obterFeriadosNacionais(ano);
+    const feriadosEstaduais = await obterFeriadosEstaduais(siglaEstado);
 
     for (let i = 0; i < primeiraSemana; i++) {
       const classeDomingo = i === 0 ? 'domingo' : 'outro-dia';
@@ -26,14 +27,25 @@ export async function gerarCalendario(ano, mes) {
 
     for (let dia = 1; dia <= diasNoMes; dia++) {
       const data = new Date(ano, mes - 1, dia);
-      const formatoData = data.toISOString().split('T')[0];
+      const formatoDataFN = data.toISOString().split('T')[0];
+      const adicionaZero = (numero) => (numero < 10 ? `0${numero}` : numero);
 
-      if (feriados.includes(formatoData)) {
+      const formatoDataFE = `${adicionaZero(data.getDate())}/${adicionaZero(data.getMonth() + 1)}`;
+      console.log(formatoDataFE);
+
+      if (feriadosNacionais.includes(formatoDataFN)) {
         const classeDomingo = (dia + primeiraSemana - 1) % 7 === 0 ? 'feriadosNacionaisTabela' : 'feriadosNacionaisTabela';
         calendarioHTML += `<td class="${classeDomingo}">${dia}</td>`;
-      } else {
-        const classeDomingo = (dia + primeiraSemana - 1) % 7 === 0 ? 'domingo' : 'outro-dia';
-        calendarioHTML += `<td class="${classeDomingo}">${dia}</td>`;
+      }else{
+        if(feriadosEstaduais.includes(formatoDataFE)){
+          const classeDomingo = (dia + primeiraSemana - 1) % 7 === 0 ? 'feriadosEstaduaisTabela' : 'feriadosEstaduaisTabela';
+          calendarioHTML += `<td class="${classeDomingo}">${dia}</td>`;
+        }
+  
+        else {
+          const classeDomingo = (dia + primeiraSemana - 1) % 7 === 0 ? 'domingo' : 'outro-dia';
+          calendarioHTML += `<td class="${classeDomingo}">${dia}</td>`;
+        }
       }
 
       if ((dia + primeiraSemana) % 7 === 0) {
@@ -51,7 +63,7 @@ export async function gerarCalendario(ano, mes) {
 }
 
 /* pegando feriados */
-async function obterFeriados(anoAtual) {
+async function obterFeriadosNacionais(anoAtual) {
   try {
     const resposta = await fetch(`https://date.nager.at/api/v3/PublicHolidays/${anoAtual}/BR`);
     const dados = await resposta.json();
@@ -66,4 +78,31 @@ async function obterFeriados(anoAtual) {
     console.error('Erro ao obter feriados:', erro);
     return [];
   }
+}
+
+async function obterFeriadosEstaduais(sigla) {
+  const caminhoDoArquivo = './data/feriadosEstaduais.json';
+
+  return fetch(caminhoDoArquivo)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`Erro ao carregar o arquivo JSON. Status: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then(data => {
+      const estadoEncontrado = data.estados.find(estado => estado.sigla === sigla);
+
+      if (estadoEncontrado) {
+        const feriados = estadoEncontrado.feriados.map(feriado => feriado.data);
+        return feriados;
+      } else {
+        console.log(`Estado com sigla ${sigla} não encontrado.`);
+        return [];
+      }
+    })
+    .catch(erro => {
+      console.error('Erro ao carregar o arquivo JSON:', erro);
+      return [];
+    });
 }

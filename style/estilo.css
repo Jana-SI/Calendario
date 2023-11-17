@@ -42,7 +42,7 @@ h3{
     background-color: var(--titulo) !important;
 }
 
-.dia-semana, #feriadosEstaduais, #maes_ou_pais{
+.dia-semana, #feriadosEstaduais, #maes_ou_pais, .feriadosEstaduaisTabela{
     font-weight: bold;
     background-color: var(--fundo3) !important;
     color: var(--texto) !important;

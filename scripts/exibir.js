@@ -44,7 +44,7 @@ async function exibirCalendario(siglaEstado, mes) {
     if (siglaEstado && mes) {
         // Chame a função gerarCalendario para exibir o calendário
         const anoAtual = new Date().getFullYear();
-        const calendarioHTML = await gerarCalendario(anoAtual, mes);
+        const calendarioHTML = await gerarCalendario(anoAtual, mes, siglaEstado);
 
         calendarioContainer.innerHTML = calendarioHTML;
 
