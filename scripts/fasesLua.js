@@ -21,9 +21,19 @@ export function exibirFasesDaLua(ano, mes) {
                 fases.forEach((fase) => {
                     const data = fase.data.split("-")[2];
                     const descricao = fase.fase;
+                    const imgPath = fase.img;
+
                     const li = document.createElement("li");
-                    li.className = "list-group-item"; // Adicione a classe do Bootstrap
-                    li.innerHTML = `${data}<br>${descricao}`;
+                    li.className = "list-group-item"; 
+                    
+                    // Adicione uma tag <img> para exibir a imagem
+                    const img = document.createElement("img");
+                    img.src = imgPath;
+                    img.alt = descricao;
+                    img.className = "moon-phase-image"; // Adicione uma classe para estilização se necessário
+
+                    li.appendChild(img);
+                    li.innerHTML += `${data}<br>${descricao}`;
                     ul.appendChild(li);
                 });
 

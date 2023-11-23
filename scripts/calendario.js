@@ -19,6 +19,7 @@ export async function gerarCalendario(ano, mes, siglaEstado) {
   try {
     const feriadosNacionais = await obterFeriadosNacionais(ano);
     const feriadosEstaduais = await obterFeriadosEstaduais(siglaEstado);
+    const fasesDaLua = await obterFasesDaLua(ano, mes);
 
     for (let i = 0; i < primeiraSemana; i++) {
       const classeDomingo = i === 0 ? 'domingo' : 'outro-dia';
@@ -29,12 +30,23 @@ export async function gerarCalendario(ano, mes, siglaEstado) {
       const data = new Date(ano, mes - 1, dia);
       const formatoDataFN = data.toISOString().split('T')[0];
       const adicionaZero = (numero) => (numero < 10 ? `0${numero}` : numero);
-
       const formatoDataFE = `${adicionaZero(data.getDate())}/${adicionaZero(data.getMonth() + 1)}`;
+      const dataFormatadaFasesDaLua = `${ano}-${adicionaZero(data.getMonth() + 1)}-${adicionaZero(data.getDate())}`;
 
       let classeCelula = ''; // Inicializa a classe da célula
+      let imagemFaseLua = ''; // Inicializa o caminho da imagem
+      let descricao = '';
 
-      if (Number(mes) === 5 || Number(mes) === 8) {
+      if (feriadosNacionais.includes(formatoDataFN)) {
+
+        classeCelula = 'feriadosNacionaisTabela';
+
+      }else if (feriadosEstaduais.includes(formatoDataFE)) {
+        
+        classeCelula = 'feriadosEstaduaisTabela';
+      
+      } else if (Number(mes) === 5 || Number(mes) === 8) {
+        
         const diaDasMaesOuPais = calcularDataMaePai(Number(mes), ano);
 
         if (dia === diaDasMaesOuPais) {
@@ -42,18 +54,29 @@ export async function gerarCalendario(ano, mes, siglaEstado) {
         } else {
           classeCelula = (dia + primeiraSemana - 1) % 7 === 0 ? 'domingo' : 'outro-dia';
         }
-      }
 
-      if (feriadosNacionais.includes(formatoDataFN)) {
-        classeCelula = 'feriadosNacionaisTabela';
-      } else if (feriadosEstaduais.includes(formatoDataFE)) {
-        classeCelula = 'feriadosEstaduaisTabela';
-      } else if (!classeCelula) {
+      } if (fasesDaLua.some(fase => fase.data === dataFormatadaFasesDaLua)) {
+        
+        const faseDaLua = fasesDaLua.find(fase => fase.data === dataFormatadaFasesDaLua);
+
+        console.log(faseDaLua);
+        
+        descricao = faseDaLua.fase;
+        imagemFaseLua = faseDaLua.img; // Obtém o caminho da imagem da fase da lua
+        /* classeCelula = 'fasesDaLua'; */
+      
+      } if (!classeCelula) {
         classeCelula = (dia + primeiraSemana - 1) % 7 === 0 ? 'domingo' : 'outro-dia';
       }
 
+      calendarioHTML += `<td class="${classeCelula}">`;
 
-      calendarioHTML += `<td class="${classeCelula}">${dia}</td>`;
+      // Adiciona a imagem, se houver
+      if (imagemFaseLua) {
+        calendarioHTML += `<img src="${imagemFaseLua}" alt="${descricao}" class="moon-phase-image">`;
+      }
+
+      calendarioHTML += `${dia}</td>`;
 
       if ((dia + primeiraSemana) % 7 === 0) {
         calendarioHTML += `</tr><tr>`;
@@ -63,7 +86,7 @@ export async function gerarCalendario(ano, mes, siglaEstado) {
     calendarioHTML += `</tr></table>`;
     return calendarioHTML;
   } catch (erro) {
-    console.error('Erro ao obter feriados:', erro);
+    console.error('Erro ao gerar o calendario:', erro);
     return '';
   }
 }
@@ -135,4 +158,29 @@ function calcularDataMaePai(mes, ano) {
 
     return segundoDomingo.getDate();
   }
+}
+
+/* estações */
+
+/* fases da lua */
+async function obterFasesDaLua(ano, mes) {
+  // Construa o caminho relativo para o arquivo JSON
+  const jsonPath = './data/fases_da_lua.json';
+
+  // Faça uma requisição HTTP para carregar o JSON e retorne a promise
+  return fetch(jsonPath)
+    .then(response => response.json())
+    .then(data => {
+      // Verifique se o ano e mês estão presentes no JSON
+      if (data[ano] && data[ano][mes]) {
+        return data[ano][mes];
+      } else {
+        console.error("Ano ou mês não encontrados no JSON.");
+        return [];
+      }
+    })
+    .catch(error => {
+      console.error("Erro ao carregar o arquivo JSON:", error);
+      return [];
+    });
 }
