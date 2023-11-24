@@ -1,152 +1,68 @@
 {
     "2023": {
-        "1": {
-            "Verão": {}
+        "Outono": {
+            "data": "20/03",
+            "hora": "18:24",
+            "img": "./imgs/outono.png"
         },
-        "2": {
-            "Verão": {}
+        "Inverno": {
+            "data": "21/06",
+            "hora": "11:58",
+            "img": "./imgs/inverno.png"
         },
-        "3": {
-            "Outono": {
-                "data": "20/03",
-                "hora": "18:24"
-            }
+        "Primavera": {
+            "data": "23/09",
+            "hora": "03:50",
+            "img": "./imgs/primavera.png"
         },
-        "4": {
-            "Outono": {}
-        },
-        "5": {
-            "Outono": {}
-        },
-        "6": {
-            "Inverno": {
-                "data": "21/06",
-                "hora": "11:58"
-            }
-        },
-        "7": {
-            "Inverno": {}
-        },
-        "8": {
-            "Inverno": {}
-        },
-        "9": {
-            "Primavera": {
-                "data": "23/09",
-                "hora": "03:50"
-            }
-        },
-        "10": {
-            "Primavera": {}
-        },
-        "11": {
-            "Primavera": {}
-        },
-        "12": {
-            "Verão": {
-                "data": "22/12",
-                "hora": "00:27"
-            }
+        "Verão": {
+            "data": "22/12",
+            "hora": "00:27",
+            "img": "./imgs/verão.png"
         }
     },
     "2024": {
-        "1": {
-            "Verão": {}
+        "Outono": {
+            "data": "20/03",
+            "hora": "00:06",
+            "img": "./imgs/outono.png"
         },
-        "2": {
-            "Verão": {}
+        "Inverno": {
+            "data": "20/06",
+            "hora": "17:51",
+            "img": "./imgs/inverno.png"
         },
-        "3": {
-            "Outono": {
-                "data": "20/03",
-                "hora": "00:06"
-            }
+        "Primavera": {
+            "data": "22/09",
+            "hora": "09:44",
+            "img": "./imgs/primavera.png"
         },
-        "4": {
-            "Outono": {}
-        },
-        "5": {
-            "Outono": {}
-        },
-        "6": {
-            "Inverno": {
-                "data": "20/06",
-                "hora": "17:51"
-            }
-        },
-        "7": {
-            "Inverno": {}
-        },
-        "8": {
-            "Inverno": {}
-        },
-        "9": {
-            "Primavera": {
-                "data": "22/09",
-                "hora": "09:44"
-            }
-        },
-        "10": {
-            "Primavera": {}
-        },
-        "11": {
-            "Primavera": {}
-        },
-        "12": {
-            "Verão": {
-                "data": "21/12",
-                "hora": "06:21"
-            }
+        "Verão": {
+            "data": "21/12",
+            "hora": "06:21",
+            "img": "./imgs/verão.png"
         }
     },
     "2025": {
-        "1": {
-            "Verão": {}
+        "Outono": {
+            "data": "20/03",
+            "hora": "06:01",
+            "img": "./imgs/outono.png"
         },
-        "2": {
-            "Verão": {}
+        "Inverno": {
+            "data": "20/06",
+            "hora": "23:42",
+            "img": "./imgs/inverno.png"
         },
-        "3": {
-            "Outono": {
-                "data": "20/03",
-                "hora": "06:01"
-            }
+        "Primavera": {
+            "data": "22/09",
+            "hora": "15:19",
+            "img": "./imgs/primavera.png"
         },
-        "4": {
-            "Outono": {}
-        },
-        "5": {
-            "Outono": {}
-        },
-        "6": {
-            "Inverno": {
-                "data": "20/06",
-                "hora": "23:42"
-            }
-        },
-        "7": {
-            "Inverno": {}
-        },
-        "8": {
-            "Inverno": {}
-        },
-        "9": {
-            "Primavera": {
-                "data": "22/09",
-                "hora": "15:19"
-            }
-        },
-        "10": {
-            "Primavera": {}
-        },
-        "11": {
-            "Primavera": {}
-        },
-        "12": {
-            "Verão": {
-                "data": "21/12",
-                "hora": "12:03"
-            }
+        "Verão": {
+            "data": "21/12",
+            "hora": "12:03",
+            "img": "./imgs/verão.png"
         }
     }
 }

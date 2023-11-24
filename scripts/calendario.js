@@ -19,6 +19,7 @@ export async function gerarCalendario(ano, mes, siglaEstado) {
   try {
     const feriadosNacionais = await obterFeriadosNacionais(ano);
     const feriadosEstaduais = await obterFeriadosEstaduais(siglaEstado);
+    const estacoes = await obterEstacoes(ano);
     const fasesDaLua = await obterFasesDaLua(ano, mes);
 
     for (let i = 0; i < primeiraSemana; i++) {
@@ -34,19 +35,23 @@ export async function gerarCalendario(ano, mes, siglaEstado) {
       const dataFormatadaFasesDaLua = `${ano}-${adicionaZero(data.getMonth() + 1)}-${adicionaZero(data.getDate())}`;
 
       let classeCelula = ''; // Inicializa a classe da célula
+
+      let imagemEstacao = ''; // Inicializa o caminho da imagem
+      let descricaoEstacao = '';
+
       let imagemFaseLua = ''; // Inicializa o caminho da imagem
-      let descricao = '';
+      let descricaoLua = '';
 
       if (feriadosNacionais.includes(formatoDataFN)) {
 
         classeCelula = 'feriadosNacionaisTabela';
 
-      }else if (feriadosEstaduais.includes(formatoDataFE)) {
-        
+      } else if (feriadosEstaduais.includes(formatoDataFE)) {
+
         classeCelula = 'feriadosEstaduaisTabela';
-      
+
       } else if (Number(mes) === 5 || Number(mes) === 8) {
-        
+
         const diaDasMaesOuPais = calcularDataMaePai(Number(mes), ano);
 
         if (dia === diaDasMaesOuPais) {
@@ -55,16 +60,27 @@ export async function gerarCalendario(ano, mes, siglaEstado) {
           classeCelula = (dia + primeiraSemana - 1) % 7 === 0 ? 'domingo' : 'outro-dia';
         }
 
-      } if (fasesDaLua.some(fase => fase.data === dataFormatadaFasesDaLua)) {
-        
+      }
+
+      const estacaoDoMes = estacoes.find(estacao => estacao.dataInicio.getMonth() + 1 === Number(mes));
+
+      if (estacaoDoMes) {
+        const diaInicioEstacao = estacaoDoMes.dataInicio.getDate();
+
+        if (dia === diaInicioEstacao) {
+            imagemEstacao = estacaoDoMes.img;
+            descricaoEstacao = estacaoDoMes.estacao;
+        }
+      }
+
+
+      if (fasesDaLua.some(fase => fase.data === dataFormatadaFasesDaLua)) {
+
         const faseDaLua = fasesDaLua.find(fase => fase.data === dataFormatadaFasesDaLua);
 
-        console.log(faseDaLua);
-        
-        descricao = faseDaLua.fase;
+        descricaoLua = faseDaLua.fase;
         imagemFaseLua = faseDaLua.img; // Obtém o caminho da imagem da fase da lua
-        /* classeCelula = 'fasesDaLua'; */
-      
+
       } if (!classeCelula) {
         classeCelula = (dia + primeiraSemana - 1) % 7 === 0 ? 'domingo' : 'outro-dia';
       }
@@ -73,7 +89,11 @@ export async function gerarCalendario(ano, mes, siglaEstado) {
 
       // Adiciona a imagem, se houver
       if (imagemFaseLua) {
-        calendarioHTML += `<img src="${imagemFaseLua}" alt="${descricao}" class="moon-phase-image">`;
+        calendarioHTML += `<img src="${imagemFaseLua}" alt="${descricaoLua}" class="moon-phase-image">`;
+      }
+
+      if (imagemEstacao) {
+        calendarioHTML += `<img src="${imagemEstacao}" alt="${descricaoEstacao}" class="estacao">`;
       }
 
       calendarioHTML += `${dia}</td>`;
@@ -161,6 +181,39 @@ function calcularDataMaePai(mes, ano) {
 }
 
 /* estações */
+async function obterEstacoes(ano) {
+  return fetch('./data/estacoes_ano.json')
+    .then(response => response.json())
+    .then(data => {
+      const estacoesAno = data[ano];
+      const vetorEstacoes = [];
+
+      if (estacoesAno) {
+        // Iterar sobre as estações do ano
+        for (const estacao in estacoesAno) {
+          const dataEstacao = estacoesAno[estacao].data;
+          const [dia, mesEstacao] = dataEstacao.split('/');
+          const dataEstacaoObj = new Date(ano, mesEstacao - 1, dia);
+
+          vetorEstacoes.push({
+            estacao: estacao,
+            dataInicio: dataEstacaoObj,
+            horaInicio: estacoesAno[estacao].hora,
+            img: estacoesAno[estacao].img
+          });
+        }
+
+        return vetorEstacoes;
+      } else {
+        console.error('Ano não encontrado no arquivo JSON.');
+        return null;
+      }
+    })
+    .catch(error => {
+      console.error('Erro ao carregar o arquivo JSON:', error);
+      return null;
+    });
+}
 
 /* fases da lua */
 async function obterFasesDaLua(ano, mes) {

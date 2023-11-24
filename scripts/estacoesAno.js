@@ -1,34 +1,41 @@
 export function exibirEstacaoDoMes(mes, ano) {
-    const mesStr = mes.toString();
+
+    mes = Number(mes);
+    ano = Number(ano);
 
     fetch('./data/estacoes_ano.json')
         .then(response => response.json())
         .then(data => {
-            const estacoesData = data; // Assume que o arquivo JSON tem a estrutura correta
+            const estacoesAno = data[ano];
+            const estacaoDoMesElement = document.getElementById('estacaoDoMes');
 
-            const estacaoData = estacoesData[ano][mesStr];
+            if (estacoesAno) {
+                // Iterar sobre as estações do ano
+                for (const estacao in estacoesAno) {
+                    const dataEstacao = estacoesAno[estacao].data;
+                    const [dia, mesEstacao] = dataEstacao.split('/');
+                    const dataEstacaoObj = new Date(ano, mesEstacao - 1, dia);
 
-            if (!estacaoData) {
-                console.log('Não foi encontrada nenhuma estação para o mês e ano especificados.');
-                return;
-            }
+                    // Verificar se o mês passado pelo usuário corresponde à estação
+                    if (dataEstacaoObj.getMonth() + 1 === mes) {
 
-            const estacao = Object.keys(estacaoData)[0];
-            const dataHora = estacaoData[estacao];
+                        // Modificando a preposição 'do' ou 'da' com base na estação
+                        let preposicao = "do";
+                        if (estacao.toLowerCase() === "primavera") {
+                            preposicao = "da";
+                        }
 
-            const elementoHtml = document.getElementById("estacaoDoMes");
-            elementoHtml.innerHTML = "";
-
-            if (dataHora && dataHora.data && dataHora.hora) {
-
-                // Modificando a preposição 'do' ou 'da' com base na estação
-                let preposicao = "do";
-                if (estacao.toLowerCase() === "primavera") {
-                    preposicao = "da";
+                        // Exibe os detalhes da estação no HTML
+                        estacaoDoMesElement.innerHTML = `<img class="estacao" src="${estacoesAno[estacao].img}" alt="${estacao}"> Início ${preposicao} ${estacao}, Data:  ${dataEstacao}, Hora: ${estacoesAno[estacao].hora}`;
+                        estacaoDoMesElement.style.display = 'block';
+                        return;
+                    }
                 }
 
-                elementoHtml.textContent = `Início ${preposicao} ${estacao}, Data: ${dataHora.data}, Hora: ${dataHora.hora}`;
-                document.getElementById("estacaoDoMes").style.display = "block";
+                estacaoDoMesElement.style.display = 'none';
+            } else {
+                console.error('Ano não encontrado no arquivo JSON.');
+                estacaoDoMesElement.style.display = 'none';
             }
         })
         .catch(error => {

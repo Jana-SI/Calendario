@@ -60,11 +60,9 @@ h3{
     font-weight: bold;
 }
 
-.moon-phase-image{
-    width: 20px;
+.moon-phase-image, .estacao{
+    width: 25px;
     margin-right: 5px;
-    border: 3px solid var(--bordas) !important;
-    border-radius: 100% !important;
 }
 
 .list-group-item{
