@@ -23,34 +23,34 @@
 <body>
     <div class="container-fluid">
         <div class="row vh-100 align-items-center">
-            <div class="col-10 offset-1">
+            <div class="col-12 col-sm-6 offset-sm-3 col-md-6 offset-md-3 col-lg-6 offset-lg-3" id="colunaPrincipal">
                 <div class="card">
                     <div class="card-header text-center">
                         <h1>Calendário Mensal por Estado <span class="anoAtual">Ano</span></h1>
                     </div>
                     <div class="card-body">
-                        <div class="row g-3 row-cols-2 justify-content-center">
-                            <div class="col-5">
+                        <div class="row justify-content-center">
+                            <div class="col-10 col-sm-10 col-md-5 col-lg-5 mb-3">
                                     <select class="form-select" id="estado">
                                         <option value="" selected>Selecione um estado</option>
                                     </select>
                             </div>
         
-                            <div class="col-5" id="mesExibir">
+                            <div class="col-10 col-sm-10 col-md-5 col-lg-5 mb-3" id="mesExibir">
                                     <select class="form-select" id="mes">
                                         <option value="" selected>Selecione um mês</option>
                                     </select>
                             </div>
 
-                            <div class="col-12 text-center">
+                            <div class="col-12 text-center mt-3">
                                 <h1><div id="estadoSelecionado"></div></h1>
                             </div>
                         </div>
-                        <div class="row align-items-center">
-                            <div class="col text-center">
+                        <div class="row align-items-center justify-content-center">
+                            <div class="col-10 col-sm-10 col-md-10 col-lg-5 text-center table-responsive">
                                 <div id="calendario"></div>
                             </div>
-                            <div class="col">
+                            <div class="col-10 col-sm-10 col-md-10 col-lg-5">
                                 <ul class="list-group">
                                     <li class="list-group-item" id="feriadosNacionais" style="display: none;">
                                     </li>

@@ -9,6 +9,7 @@ import { calcularDataMaePai } from "./dia_maes_pais.js"
 const estadoSelect = document.getElementById("estado");
 const mesExibir = document.getElementById("mesExibir");
 const mesSelect = document.getElementById("mes");
+const colunaPrincipal = document.getElementById("colunaPrincipal");
 const calendarioContainer = document.getElementById("calendario");
 
 const divEstadoSelecionado = document.getElementById("estadoSelecionado");
@@ -21,8 +22,18 @@ estadoSelect.addEventListener("change", function() {
     divEstadoSelecionado.textContent = `Estado: ${estadoSelecionado}`;
 
     // Exibir o select de mês após a seleção do estado
-    mesExibir.style.display = "block";
-  });
+    mesExibir.style.display = estadoSelecionado ? "block" : "none";
+
+    // Ajustar a largura da coluna com base na presença do estado selecionado
+    colunaPrincipal.classList.remove("col-sm-6", "offset-sm-3", "col-md-6", "offset-md-3", "col-lg-6", "offset-lg-3");
+    
+    if (estadoSelecionado) {
+        colunaPrincipal.classList.add("col-sm-10", "offset-sm-1", "col-md-10", "offset-md-1", "col-lg-10", "offset-lg-1");
+    } else {
+        colunaPrincipal.classList.add("col-sm-6", "offset-sm-3", "col-md-6", "offset-md-3", "col-lg-6", "offset-lg-3");
+    }
+    
+});
 
 // Adicione um ouvinte de eventos para os seletores
 estadoSelect.addEventListener("change", validarSelecao);

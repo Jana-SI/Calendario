@@ -36,21 +36,60 @@ h3{
     color: var(--titulo) !important;
 }
 
-#mesSelecionado, .domingo, #feriadosNacionais, .feriadosNacionaisTabela{
+#mesSelecionado, .domingo{
     font-weight: bold;
     color: var(--fundo2) !important;
     background-color: var(--titulo) !important;
 }
 
-.dia-semana, #feriadosEstaduais, #maes_ou_pais, .feriadosEstaduaisTabela, .maes_ou_pais{
+.feriadosNacionaisTabela{
+    background-color: var(--fundo2) !important;
+    display: inline-block;
+    text-align: center;
+    width: 30px;
+    height: 30px;
+    /* line-height: 30px; */
+    color: var(--titulo) !important;
     font-weight: bold;
-    background-color: var(--fundo3) !important;
+    border: 3px solid var(--bordas) !important;
+    border-radius: 50%;
+}
+
+.feriadosEstaduaisTabela{
+    background-color: var(--fundo2) !important;
+    display: inline-block;
+    text-align: center;
+    width: 30px;
+    height: 30px;
+    /* line-height: 30px; */
+    color: var(--titulo) !important;
+    font-weight: bold;
+    border: 3px solid var(--bordas3) !important;
+    border-radius: 50%;
+}
+
+.maes_ou_pais{
+    background-color: var(--fundo2) !important;
+    display: inline-block;
+    text-align: center;
+    width: 30px;
+    height: 30px;
+    /* line-height: 30px; */
+    color: var(--titulo) !important;
+    font-weight: bold;
+    border: 3px solid var(--fundo1) !important;
+    border-radius: 50%;
+}
+
+.dia-semana, #feriadosNacionais, #feriadosEstaduais, #maes_ou_pais{
+    font-weight: bold;
+    background-color: var(--fundo2) !important;
     color: var(--texto) !important;
 }
 
 #estacaoDoMes{
     font-weight: bold;
-    background-color: white !important;
+    background-color: var(--fundo2);
     color: var(--texto) !important;
 }
 

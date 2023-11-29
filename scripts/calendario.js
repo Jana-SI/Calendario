@@ -35,6 +35,7 @@ export async function gerarCalendario(ano, mes, siglaEstado) {
       const dataFormatadaFasesDaLua = `${ano}-${adicionaZero(data.getMonth() + 1)}-${adicionaZero(data.getDate())}`;
 
       let classeCelula = ''; // Inicializa a classe da célula
+      let classeCelulaF = ''; // Inicializa a classe da célula
 
       let imagemEstacao = ''; // Inicializa o caminho da imagem
       let descricaoEstacao = '';
@@ -44,20 +45,20 @@ export async function gerarCalendario(ano, mes, siglaEstado) {
 
       if (feriadosNacionais.includes(formatoDataFN)) {
 
-        classeCelula = 'feriadosNacionaisTabela';
+        classeCelulaF  = 'feriadosNacionaisTabela';
 
       } else if (feriadosEstaduais.includes(formatoDataFE)) {
 
-        classeCelula = 'feriadosEstaduaisTabela';
+        classeCelulaF  = 'feriadosEstaduaisTabela';
 
       } else if (Number(mes) === 5 || Number(mes) === 8) {
 
         const diaDasMaesOuPais = calcularDataMaePai(Number(mes), ano);
 
         if (dia === diaDasMaesOuPais) {
-          classeCelula = 'maes_ou_pais';
+          classeCelulaF  = 'maes_ou_pais';
         } else {
-          classeCelula = (dia + primeiraSemana - 1) % 7 === 0 ? 'domingo' : 'outro-dia';
+          classeCelulaF = ''
         }
 
       }
@@ -96,7 +97,7 @@ export async function gerarCalendario(ano, mes, siglaEstado) {
         calendarioHTML += `<img src="${imagemEstacao}" alt="${descricaoEstacao}" class="estacao">`;
       }
 
-      calendarioHTML += `${dia}</td>`;
+      calendarioHTML += `<span class="${classeCelulaF}">${dia}</span></td>`;
 
       if ((dia + primeiraSemana) % 7 === 0) {
         calendarioHTML += `</tr><tr>`;

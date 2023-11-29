@@ -15,7 +15,7 @@ export function exibirFasesDaLua(ano, mes) {
                 elementoHtml.innerHTML = "";
 
                 const ul = document.createElement("ul");
-                ul.className = "list-group list-group-horizontal"; // Adicione a classe do Bootstrap
+                ul.className = "list-group flex-column flex-sm-row"; // Adicione a classe do Bootstrap
                 elementoHtml.appendChild(ul);
 
                 fases.forEach((fase) => {
@@ -33,7 +33,7 @@ export function exibirFasesDaLua(ano, mes) {
                     img.className = "moon-phase-image"; // Adicione uma classe para estilização se necessário
 
                     li.appendChild(img);
-                    li.innerHTML += `${data}<br>${descricao}`;
+                    li.innerHTML += `${data} ${descricao}`;
                     ul.appendChild(li);
                 });
 
