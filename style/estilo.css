@@ -1,48 +1,58 @@
 @import 'cores.css';
 
-body{
+body {
     background-image: url('../imgs/fundo2.jpeg');
     background-size: cover;
     background-position: center;
 }
 
 .card {
+    margin-top: 10px;
+    margin-bottom: 10px;
     background-color: var(--fundo1) !important;
     border: 5px solid var(--bordas) !important;
 }
 
-.card-header{
+.card-header {
     border-bottom: 5px solid var(--bordas) !important;
 }
 
-h1{
+h1 {
     color: var(--titulo) !important;
 }
 
-h3{
+h3 {
     margin: 0 !important;
     padding: 0 !important;
 }
 
-.card-footer{
+.card-footer {
     color: var(--titulo) !important;
     border-top: 5px solid var(--bordas) !important;
 }
 
-.form-select{
+.form-select {
     background-color: var(--fundo2) !important;
     border: 3px solid var(--bordas) !important;
     border-radius: 5px;
     color: var(--titulo) !important;
 }
 
-#mesSelecionado, .domingo{
+#mesSelecionado,
+.domingo {
     font-weight: bold;
     color: var(--fundo2) !important;
     background-color: var(--titulo) !important;
 }
 
-.feriadosNacionaisTabela{
+.dia-semana,
+#feriadosNacionais {
+    font-weight: bold;
+    background-color: var(--fundo2) !important;
+    color: var(--texto) !important;
+}
+
+.feriadosNacionaisTabela {
     background-color: var(--fundo2) !important;
     display: inline-block;
     text-align: center;
@@ -55,7 +65,7 @@ h3{
     border-radius: 50%;
 }
 
-.feriadosEstaduaisTabela{
+.feriadosEstaduaisTabela {
     background-color: var(--fundo2) !important;
     display: inline-block;
     text-align: center;
@@ -68,7 +78,13 @@ h3{
     border-radius: 50%;
 }
 
-.maes_ou_pais{
+#feriadosEstaduais {
+    color: var(--bordas3) !important;
+    font-weight: bold;
+    background-color: var(--fundo2) !important;
+}
+
+.maes_ou_pais {
     background-color: var(--fundo2) !important;
     display: inline-block;
     text-align: center;
@@ -81,29 +97,127 @@ h3{
     border-radius: 50%;
 }
 
-.dia-semana, #feriadosNacionais, #feriadosEstaduais, #maes_ou_pais{
-    font-weight: bold;
+.moon-phase{
     background-color: var(--fundo2) !important;
-    color: var(--texto) !important;
+    display: inline-block;
+    text-align: center;
+    width: 30px;
+    height: 30px;
+    /* line-height: 30px; */
+    color: var(--titulo) !important;
+    font-weight: bold;
+    border: 3px solid black !important;
+    border-radius: 50%;
 }
 
-#estacaoDoMes{
+.estacao_primavera{
+    background-color: var(--fundo2) !important;
+    display: inline-block;
+    text-align: center;
+    width: 30px;
+    height: 30px;
+    /* line-height: 30px; */
+    color: var(--titulo) !important;
+    font-weight: bold;
+    border: 3px solid var(--Primavera) !important;
+    border-radius: 50%;
+}
+
+.estacao_verao{
+    background-color: var(--fundo2) !important;
+    display: inline-block;
+    text-align: center;
+    width: 30px;
+    height: 30px;
+    /* line-height: 30px; */
+    color: var(--titulo) !important;
+    font-weight: bold;
+    border: 3px solid var(--Verao) !important;
+    border-radius: 50%;
+}
+
+.estacao_outono{
+    background-color: var(--fundo2) !important;
+    display: inline-block;
+    text-align: center;
+    width: 30px;
+    height: 30px;
+    /* line-height: 30px; */
+    color: var(--titulo) !important;
+    font-weight: bold;
+    border: 3px solid var(--Outono) !important;
+    border-radius: 50%;
+}
+
+.estacao_inverno{
+    background-color: var(--fundo2) !important;
+    display: inline-block;
+    text-align: center;
+    width: 30px;
+    height: 30px;
+    /* line-height: 30px; */
+    color: var(--titulo) !important;
+    font-weight: bold;
+    border: 3px solid var(--Inverno) !important;
+    border-radius: 50%;
+}
+
+.estacao_primavera_li{
+    background-color: var(--fundo2) !important;
+    color: var(--Primavera) !important;
+    font-weight: bold;
+}
+
+.estacao_verao_li{
+    background-color: var(--fundo2) !important;
+    color: var(--Verao) !important;
+    font-weight: bold;
+}
+
+.estacao_outono_li{
+    background-color: var(--fundo2) !important;
+    color: var(--Outono) !important;
+    font-weight: bold;
+}
+
+.estacao_inverno_li{
+    background-color: var(--fundo2) !important;
+    color: var(--Inverno) !important;
+    font-weight: bold;
+}
+
+#maes_ou_pais {
+    color: var(--fundo1) !important;
+    font-weight: bold;
+    background-color: var(--fundo2) !important;
+}
+
+#estacaoDoMes {
     font-weight: bold;
     background-color: var(--fundo2);
     color: var(--texto) !important;
 }
 
-.outro-dia, #fasesDaLua, #fasesDaLua li, .fasesDaLua{
+.outro-dia {
     background-color: var(--fundo2) !important;
     color: var(--titulo) !important;
     font-weight: bold;
 }
 
-.moon-phase-image, .estacao{
-    width: 25px;
-    margin-right: 5px;
+#fasesDaLua,
+#fasesDaLua li {
+    background-color: var(--fundo2) !important;
+    color: black !important;
+    font-weight: bold;
 }
 
-.list-group-item{
+.moon-phase-image,
+.estacao {
+    width: 25px;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+.list-group-item {
     border: none !important;
 }

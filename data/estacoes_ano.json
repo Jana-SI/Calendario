@@ -18,7 +18,7 @@
         "Verão": {
             "data": "22/12",
             "hora": "00:27",
-            "img": "./imgs/verão.png"
+            "img": "./imgs/verao.png"
         }
     },
     "2024": {
@@ -40,7 +40,7 @@
         "Verão": {
             "data": "21/12",
             "hora": "06:21",
-            "img": "./imgs/verão.png"
+            "img": "./imgs/verao.png"
         }
     },
     "2025": {
@@ -62,7 +62,7 @@
         "Verão": {
             "data": "21/12",
             "hora": "12:03",
-            "img": "./imgs/verão.png"
+            "img": "./imgs/verao.png"
         }
     }
 }

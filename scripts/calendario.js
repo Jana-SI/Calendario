@@ -36,27 +36,29 @@ export async function gerarCalendario(ano, mes, siglaEstado) {
 
       let classeCelula = ''; // Inicializa a classe da célula
       let classeCelulaF = ''; // Inicializa a classe da célula
+      let classeCelulaL = '';
+      let classeCelulaE = '';
 
-      let imagemEstacao = ''; // Inicializa o caminho da imagem
+      /* let imagemEstacao = ''; // Inicializa o caminho da imagem */
       let descricaoEstacao = '';
 
-      let imagemFaseLua = ''; // Inicializa o caminho da imagem
-      let descricaoLua = '';
+      /* let imagemFaseLua = ''; // Inicializa o caminho da imagem
+      let descricaoLua = ''; */
 
       if (feriadosNacionais.includes(formatoDataFN)) {
 
-        classeCelulaF  = 'feriadosNacionaisTabela';
+        classeCelulaF = 'feriadosNacionaisTabela';
 
       } else if (feriadosEstaduais.includes(formatoDataFE)) {
 
-        classeCelulaF  = 'feriadosEstaduaisTabela';
+        classeCelulaF = 'feriadosEstaduaisTabela';
 
       } else if (Number(mes) === 5 || Number(mes) === 8) {
 
         const diaDasMaesOuPais = calcularDataMaePai(Number(mes), ano);
 
         if (dia === diaDasMaesOuPais) {
-          classeCelulaF  = 'maes_ou_pais';
+          classeCelulaF = 'maes_ou_pais';
         } else {
           classeCelulaF = ''
         }
@@ -69,39 +71,58 @@ export async function gerarCalendario(ano, mes, siglaEstado) {
         const diaInicioEstacao = estacaoDoMes.dataInicio.getDate();
 
         if (dia === diaInicioEstacao) {
-            imagemEstacao = estacaoDoMes.img;
-            descricaoEstacao = estacaoDoMes.estacao;
+          /* imagemEstacao = estacaoDoMes.img; */
+          descricaoEstacao = estacaoDoMes.estacao;
+
+          if (descricaoEstacao === 'Primavera') {
+            classeCelulaE = 'estacao_primavera';
+          }
+
+          if (descricaoEstacao === 'Verão') {
+            classeCelulaE = 'estacao_verao';
+          }
+          if (descricaoEstacao === 'Outono') {
+            classeCelulaE = 'estacao_outono';
+          }
+          if (descricaoEstacao === 'Inverno') {
+            classeCelulaE = 'estacao_inverno';
+          }
         }
       }
 
-
       if (fasesDaLua.some(fase => fase.data === dataFormatadaFasesDaLua)) {
 
-        const faseDaLua = fasesDaLua.find(fase => fase.data === dataFormatadaFasesDaLua);
+        /* const faseDaLua = fasesDaLua.find(fase => fase.data === dataFormatadaFasesDaLua);
 
         descricaoLua = faseDaLua.fase;
-        imagemFaseLua = faseDaLua.img; // Obtém o caminho da imagem da fase da lua
+        imagemFaseLua = faseDaLua.img; // Obtém o caminho da imagem da fase da lua */
+
+        classeCelulaL = 'moon-phase';
 
       } if (!classeCelula) {
         classeCelula = (dia + primeiraSemana - 1) % 7 === 0 ? 'domingo' : 'outro-dia';
       }
 
       calendarioHTML += `<td class="${classeCelula}">`;
-
-      // Adiciona a imagem, se houver
-      if (imagemFaseLua) {
-        calendarioHTML += `<img src="${imagemFaseLua}" alt="${descricaoLua}" class="moon-phase-image">`;
+      
+      if (classeCelulaF) {
+        calendarioHTML += `<span class="${classeCelulaF}">${dia}</span>`;
+      } else if (classeCelulaE) {
+        calendarioHTML += `<span class="${classeCelulaE}">${dia}</span>`;
+        /* calendarioHTML += `<img src="${imagemEstacao}" alt="${descricaoEstacao}" class="estacao">`; */
+      } else if (classeCelulaL) {
+        calendarioHTML += `<span class="${classeCelulaL}">${dia}</span>`;
+        /* calendarioHTML += `<img src="${imagemFaseLua}" alt="${descricaoLua}" class="moon-phase-image">`; */
+      } else {
+        calendarioHTML += `${dia}`;
       }
 
-      if (imagemEstacao) {
-        calendarioHTML += `<img src="${imagemEstacao}" alt="${descricaoEstacao}" class="estacao">`;
-      }
-
-      calendarioHTML += `<span class="${classeCelulaF}">${dia}</span></td>`;
+      calendarioHTML += `</td>`;
 
       if ((dia + primeiraSemana) % 7 === 0) {
         calendarioHTML += `</tr><tr>`;
       }
+
     }
 
     calendarioHTML += `</tr></table>`;
