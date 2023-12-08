@@ -221,3 +221,7 @@ h3 {
 .list-group-item {
     border: none !important;
 }
+
+#imgIcone{
+    width: 150px;
+}
