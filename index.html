@@ -32,49 +32,58 @@
                             <img id="imgIcone" class="rounded float-start" src="imgs/icone.png" alt="icone">
                             <h1 class="ms-3 mb-0">Calendário Mensal por Estado <span class="anoAtual">Ano</span></h1>
                         </div>
-                    </div>                    
+                    </div>
                     <div class="card-body">
                         <div class="row justify-content-center">
                             <div class="col-10 col-sm-10 col-md-5 col-lg-5 mb-3">
-                                    <select class="form-select" id="estado">
-                                        <option value="" selected>Selecione um estado</option>
-                                    </select>
+                                <select class="form-select" id="estado">
+                                    <option value="" selected>Selecione um estado</option>
+                                </select>
                             </div>
-        
+
                             <div class="col-10 col-sm-10 col-md-5 col-lg-5 mb-3" id="mesExibir">
-                                    <select class="form-select" id="mes">
-                                        <option value="" selected>Selecione um mês</option>
-                                    </select>
+                                <select class="form-select" id="mes">
+                                    <option value="" selected>Selecione um mês</option>
+                                </select>
                             </div>
 
                             <div class="col-12 text-center mt-3">
-                                <h1><div id="estadoSelecionado"></div></h1>
+                                <h1>
+                                    <div id="estadoSelecionado"></div>
+                                </h1>
                             </div>
                         </div>
+
+
+
                         <div class="row align-items-center justify-content-center">
-                            <div class="col-12 col-sm-12 col-md-8 col-lg-6 text-center table-responsive">
+                            <div id="loader" class="col-12 col-sm-12 col-md-12 col-lg-12 text-center" style="display: none;">
+                                <div class="spinner-border" role="status">
+                                    <span class="visually-hidden">Loading...</span>
+                                </div>
+                            </div>
+                            <div id="colCalendario"
+                                class="col-12 col-sm-12 col-md-8 col-lg-6 text-center table-responsive"
+                                style="display: none;">
                                 <div id="calendario"></div>
                             </div>
-                            <div class="col-12 col-sm-12 col-md-8 col-lg-6">
+                            <div id="colLista" class="col-12 col-sm-12 col-md-8 col-lg-6" style="display: none;">
                                 <ul class="list-group">
-                                    <li class="list-group-item" id="feriadosNacionais" style="display: none;">
-                                    </li>
-                                    <li class="list-group-item" id="feriadosEstaduais" style="display: none;">
-                                    </li>
-                                    <li class="list-group-item" id="maes_ou_pais" style="display: none;">
-                                    </li>
-                                    <li class="list-group-item" id="estacaoDoMes" style="display: none;">
-                                    </li>
-                                    <li class="list-group-item d-flex justify-content-center text-center" id="fasesDaLua" style="display: none !important;">                              
-                                    </li>
+                                    <li class="list-group-item" id="feriadosNacionais" style="display: none;"></li>
+                                    <li class="list-group-item" id="feriadosEstaduais" style="display: none;"></li>
+                                    <li class="list-group-item" id="maes_ou_pais" style="display: none;"></li>
+                                    <li class="list-group-item" id="estacaoDoMes" style="display: none;"></li>
+                                    <li class="list-group-item d-flex justify-content-center text-center"
+                                        id="fasesDaLua" style="display: none !important;"></li>
                                 </ul>
                             </div>
                         </div>
+
                     </div>
                     <div class="card-footer text-center">
                         &copy; <span class="anoAtual">Ano</span> Jana_AdS. Todos os direitos reservados.
                     </div>
-                  </div>
+                </div>
             </div>
         </div>
     </div>

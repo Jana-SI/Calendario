@@ -225,3 +225,7 @@ h3 {
 #imgIcone{
     width: 150px;
 }
+
+.spinner-border{
+    color: var(--bordas) ;
+}
