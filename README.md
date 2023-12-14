@@ -4,7 +4,7 @@
 
 ## 🎨 Seções
 
-O site é composto por quatro seções:
+O site é composto por uma seção:
 
 🏠 **Home:** 
 
